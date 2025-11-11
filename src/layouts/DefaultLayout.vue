@@ -3,7 +3,7 @@
     <header class="border-b bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/50">
       <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <router-link class="flex items-center gap-2 font-semibold text-gray-900" to="/">
-          <img class="h-7 w-7" src="/favicon.svg" alt="logo" />
+          <img class="h-7 w-7" :src="base + 'favicon.svg'" alt="logo" />
           <span>Mem-Style</span>
         </router-link>
         <nav class="flex items-center gap-4">
@@ -33,6 +33,7 @@
 import { useRouter } from 'vue-router'
 import BaseButton from '@/components/base/BaseButton.vue'
 const router = useRouter()
+const base = import.meta.env.BASE_URL
 function goStart() {
   router.push('/')
 }
