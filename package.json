@@ -1,0 +1,39 @@
+{
+  "name": "memweb",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .ts,.vue src",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "echarts": "^5.5.0",
+    "element-plus": "^2.8.6",
+    "pinia": "^2.2.6",
+    "sass": "^1.80.6",
+    "vue": "^3.5.10",
+    "vue-echarts": "^6.7.3",
+    "vue-flow-layout": "^0.1.0",
+    "vue-router": "^4.4.5",
+    "markdown-it": "^14.1.0",
+    "vue3-markdown-it": "^1.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.14.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}
+

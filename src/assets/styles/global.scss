@@ -1,0 +1,14 @@
+:root {
+  --hero-gradient-start: #e8f1ff;
+  --hero-gradient-end: #ffffff;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+.hero-gradient {
+  background: linear-gradient(180deg, var(--hero-gradient-start), var(--hero-gradient-end));
+}
+
+
