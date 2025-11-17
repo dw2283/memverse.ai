@@ -7,7 +7,7 @@
           <div class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
             CVPR 2026 Submission #1238 | Anonymous
           </div>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight md:whitespace-nowrap">
             MemVerse: Multimodal Memory for Lifelong Learning Agents
           </h1>
           <p class="text-xl text-gray-600 leading-relaxed">
