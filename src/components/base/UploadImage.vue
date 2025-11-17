@@ -18,7 +18,9 @@
     <div v-if="preview" class="rounded-lg border p-3 bg-white">
       <img :src="preview" alt="preview" class="max-h-64 object-contain mx-auto" />
       <div class="text-right mt-2">
-        <BaseButton type="primary" @click="emitAnalyze" :disabled="!file">Analyze Image</BaseButton>
+        <BaseButton type="primary" @click="emitAnalyze" :disabled="!file || loading" :loading="loading">
+          Analyze Image
+        </BaseButton>
       </div>
     </div>
   </div>
@@ -27,6 +29,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import BaseButton from './BaseButton.vue'
+
+defineProps<{
+  loading?: boolean
+}>()
 
 const emit = defineEmits<{ (e: 'analyze', file: File): void }>()
 

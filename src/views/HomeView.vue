@@ -39,6 +39,24 @@
     </div>
   </section>
 
+  <section class="max-w-7xl mx-auto px-4 py-16 bg-gray-50">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Research & Analysis</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Upload an image to analyze and extract insights using our AI memory system.
+      </p>
+    </div>
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-xl border p-8 shadow-sm">
+        <UploadImage :loading="analyzing" @analyze="handleImageAnalyze" />
+        <div v-if="analysisResult" class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <h3 class="font-semibold text-gray-900 mb-2">Analysis Result:</h3>
+          <p class="text-gray-700">{{ analysisResult }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="max-w-3xl mx-auto px-4 pb-20">
     <el-form :model="form" class="grid md:grid-cols-[1fr_auto] gap-3">
       <el-input v-model="form.email" placeholder="Enter your email for updates" />
@@ -54,6 +72,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import BaseButton from '@/components/base/BaseButton.vue'
+import UploadImage from '@/components/base/UploadImage.vue'
 import { useNotification } from '@/composables/useNotification'
 import { useLoading } from '@/composables/useLoading'
 import { subscribeEmail } from '@/services/site'
@@ -64,6 +83,8 @@ const { success, error } = useNotification()
 const { loading, start, stop } = useLoading(false, 'Submitting...')
 
 const form = ref({ email: '' })
+const analysisResult = ref<string>('')
+const { loading: analyzing, start: startAnalyze, stop: stopAnalyze } = useLoading(false, 'Analyzing...')
 
 function goDocs() {
   router.push('/docs')
@@ -86,6 +107,25 @@ async function subscribe() {
     error(e?.message || 'Subscribe failed')
   } finally {
     stop()
+  }
+}
+
+async function handleImageAnalyze(file: File) {
+  try {
+    startAnalyze()
+    analysisResult.value = ''
+    
+    // 这里可以调用实际的API来分析图片
+    // 目前先模拟一个响应
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    
+    // 模拟分析结果
+    analysisResult.value = `Image "${file.name}" has been successfully uploaded and analyzed. The system has extracted key visual features and stored them in memory for future reference.`
+    success('Image analyzed successfully!')
+  } catch (e: any) {
+    error(e?.message || 'Image analysis failed')
+  } finally {
+    stopAnalyze()
   }
 }
 </script>
