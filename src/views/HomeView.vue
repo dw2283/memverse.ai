@@ -1,48 +1,48 @@
 <template>
   <!-- Hero Section -->
   <section class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b">
-    <div class="max-w-7xl mx-auto px-4 py-20 md:py-32">
-      <div class="text-center max-w-4xl mx-auto space-y-8">
-        <div class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-32">
+      <div class="text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
+        <div class="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-4">
           Personalize your AI app with long-term memory
         </div>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-          <span class="text-gray-900">Your AI isn't intelligent</span><br>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight px-2">
+          <span class="text-gray-900">Your AI isn't intelligent</span><br class="hidden sm:block">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">until it remembers</span>
         </h1>
-        <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
           Delight your users with blazing fast and scalable memory for your AI application. 
           Interoperable between models and modalities.
         </p>
-        <div class="flex flex-wrap justify-center gap-4 pt-4">
-          <BaseButton type="primary" size="large" @click="goDemo" class="text-lg px-8 py-4">
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-4">
+          <BaseButton type="primary" size="large" @click="goDemo" class="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
             Try Demo →
           </BaseButton>
-          <BaseButton size="large" @click="goDocs" class="text-lg px-8 py-4">
+          <BaseButton size="large" @click="goDocs" class="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
             Explore Docs
           </BaseButton>
         </div>
       </div>
 
       <!-- Simple Integration Flow -->
-      <div class="mt-16 max-w-3xl mx-auto">
-        <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-xl">
-          <div class="flex items-center justify-center gap-6 flex-wrap">
-            <div class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-lg">
-              <span class="text-xl font-bold text-white">Plug MemVerse</span>
+      <div class="mt-8 sm:mt-12 md:mt-16 max-w-3xl mx-auto px-4">
+        <div class="bg-white rounded-xl sm:rounded-2xl border-2 border-gray-200 p-4 sm:p-6 md:p-8 shadow-xl">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6">
+            <div class="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg sm:rounded-xl shadow-lg w-full sm:w-auto">
+              <span class="text-base sm:text-lg md:text-xl font-bold text-white whitespace-nowrap">Plug MemVerse</span>
             </div>
-            <div class="text-2xl text-gray-400">→</div>
-            <div class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl shadow-lg animate-pulse">
-              <el-icon class="text-white text-2xl"><i-ep-robot /></el-icon>
-              <span class="text-xl font-bold text-white">Your AI Agent</span>
+            <div class="text-xl sm:text-2xl text-gray-400 rotate-90 sm:rotate-0">→</div>
+            <div class="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg sm:rounded-xl shadow-lg animate-pulse w-full sm:w-auto">
+              <el-icon class="text-white text-lg sm:text-xl md:text-2xl"><i-ep-robot /></el-icon>
+              <span class="text-base sm:text-lg md:text-xl font-bold text-white whitespace-nowrap">Your AI Agent</span>
             </div>
-            <div class="text-2xl text-gray-400">→</div>
-            <div class="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl shadow-lg">
-              <el-icon class="text-white text-2xl"><i-ep-star /></el-icon>
-              <span class="text-xl font-bold text-white">Unforgettable</span>
+            <div class="text-xl sm:text-2xl text-gray-400 rotate-90 sm:rotate-0">→</div>
+            <div class="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg sm:rounded-xl shadow-lg w-full sm:w-auto">
+              <el-icon class="text-white text-lg sm:text-xl md:text-2xl"><i-ep-star /></el-icon>
+              <span class="text-base sm:text-lg md:text-xl font-bold text-white whitespace-nowrap">Unforgettable</span>
             </div>
           </div>
-          <p class="text-center text-gray-500 mt-6 text-sm">
+          <p class="text-center text-gray-500 mt-4 sm:mt-6 text-xs sm:text-sm px-2">
             One-line install. Works with any LLM. No complex setup.
           </p>
         </div>
@@ -51,38 +51,38 @@
   </section>
 
   <!-- Trusted By Section -->
-  <section class="bg-gray-50 border-b py-8">
-    <div class="max-w-7xl mx-auto px-4">
-      <p class="text-center text-sm text-gray-500 mb-6">Trusted by developers and enterprises</p>
-      <div class="flex items-center justify-center gap-8 flex-wrap opacity-60">
-        <div class="text-2xl font-bold text-gray-400">MemVerse</div>
-        <div class="text-lg text-gray-400">makes your AI agent</div>
-        <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Unforgettable</div>
+  <section class="bg-gray-50 border-b py-6 sm:py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <p class="text-center text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">Trusted by developers and enterprises</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-8 flex-wrap opacity-60">
+        <div class="text-xl sm:text-2xl font-bold text-gray-400">MemVerse</div>
+        <div class="text-base sm:text-lg text-gray-400">makes your AI agent</div>
+        <div class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Unforgettable</div>
       </div>
     </div>
   </section>
 
   <!-- Problem Statement -->
-  <section class="max-w-7xl mx-auto px-4 py-20">
-    <div class="text-center max-w-3xl mx-auto space-y-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+    <div class="text-center max-w-3xl mx-auto space-y-4 sm:space-y-6">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2">
         AI systems lose context as user data evolves
       </h2>
-      <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="p-6 rounded-xl border-2 border-red-200 bg-red-50">
-          <div class="text-4xl mb-4">❌</div>
-          <h3 class="font-bold text-gray-900 mb-2">Vector databases fail</h3>
-          <p class="text-gray-600 text-sm">Can't track relationships between data</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
+        <div class="p-4 sm:p-6 rounded-xl border-2 border-red-200 bg-red-50">
+          <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">❌</div>
+          <h3 class="font-bold text-gray-900 mb-2 text-sm sm:text-base">Vector databases fail</h3>
+          <p class="text-gray-600 text-xs sm:text-sm">Can't track relationships between data</p>
         </div>
-        <div class="p-6 rounded-xl border-2 border-orange-200 bg-orange-50">
-          <div class="text-4xl mb-4">⚠️</div>
-          <h3 class="font-bold text-gray-900 mb-2">RAGs retrieve knowledge</h3>
-          <p class="text-gray-600 text-sm">But can't remember context</p>
+        <div class="p-4 sm:p-6 rounded-xl border-2 border-orange-200 bg-orange-50">
+          <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">⚠️</div>
+          <h3 class="font-bold text-gray-900 mb-2 text-sm sm:text-base">RAGs retrieve knowledge</h3>
+          <p class="text-gray-600 text-xs sm:text-sm">But can't remember context</p>
         </div>
-        <div class="p-6 rounded-xl border-2 border-green-200 bg-green-50">
-          <div class="text-4xl mb-4">✅</div>
-          <h3 class="font-bold text-gray-900 mb-2">Try MemVerse</h3>
-          <p class="text-gray-600 text-sm">Personalization memory API</p>
+        <div class="p-4 sm:p-6 rounded-xl border-2 border-green-200 bg-green-50 sm:col-span-2 md:col-span-1">
+          <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">✅</div>
+          <h3 class="font-bold text-gray-900 mb-2 text-sm sm:text-base">Try MemVerse</h3>
+          <p class="text-gray-600 text-xs sm:text-sm">Personalization memory API</p>
         </div>
       </div>
     </div>
