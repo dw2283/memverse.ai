@@ -20,18 +20,26 @@
           <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight px-2 animate-fade-in-up">
             <span class="text-white">Your AI isn't intelligent</span><br class="hidden sm:block">
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient">until it remembers</span>
-          </h1>
+        </h1>
           <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 animate-fade-in-up" style="animation-delay: 0.2s;">
             Delight your users with blazing fast and scalable memory for your AI application. 
             Interoperable between models and modalities.
           </p>
           <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-4 animate-fade-in-up" style="animation-delay: 0.4s;">
-            <BaseButton type="primary" size="large" @click="goDemo" class="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 border-0 shadow-lg shadow-blue-500/50">
-              Try Demo →
-            </BaseButton>
-            <BaseButton size="large" @click="goDocs" class="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white hover:bg-gray-700/50">
-              Explore Docs
-            </BaseButton>
+            <a 
+              href="https://github.com/dw2283/memweb" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 border-0 shadow-lg shadow-blue-500/50 rounded-lg text-white font-semibold transition-all min-w-[180px]"
+            >
+              GitHub →
+            </a>
+            <button 
+              @click="goToResearch"
+              class="inline-flex items-center justify-center w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white hover:bg-gray-700/50 rounded-lg font-semibold transition-all min-w-[180px]"
+            >
+              Explore Research
+            </button>
           </div>
         </div>
 
@@ -124,8 +132,8 @@
             <p class="text-gray-400 text-sm sm:text-base">Enterprise-grade memory at 70% lower cost than bloated infrastructure solutions.</p>
           </div>
         </div>
+        </div>
       </div>
-    </div>
   </section>
 
   <!-- CTA Section -->
@@ -142,12 +150,20 @@
           Start building with MemVerse today.
         </p>
         <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
-          <BaseButton size="large" class="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-xl">
-            Try Demo →
-          </BaseButton>
-          <BaseButton size="large" class="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white/10 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-sm">
-            Read Documentation
-          </BaseButton>
+          <a 
+            href="https://github.com/dw2283/memweb" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg font-semibold shadow-xl transition-all min-w-[180px]"
+          >
+            GitHub →
+          </a>
+          <button 
+            @click="goToResearch"
+            class="inline-flex items-center justify-center w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white/10 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 backdrop-blur-sm rounded-lg font-semibold transition-all min-w-[180px]"
+          >
+            Explore Research
+          </button>
         </div>
       </div>
     </div>
@@ -195,8 +211,8 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
+    </div>
+    </div>
     </div>
   </section>
 
@@ -215,10 +231,10 @@
           <BaseButton type="primary" :loading="loading" @click="subscribe" size="large" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 border-0">
             Notify Me
           </BaseButton>
-        </el-form>
+    </el-form>
         <p class="text-xs text-gray-500 mt-3 text-center">
-          By subscribing you agree to our privacy policy.
-        </p>
+      By subscribing you agree to our privacy policy.
+    </p>
       </div>
     </div>
   </section>

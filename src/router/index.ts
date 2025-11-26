@@ -7,6 +7,7 @@ const PrivacyView = () => import('@/views/PrivacyView.vue')
 const StatusView = () => import('@/views/StatusView.vue')
 const DemoView = () => import('@/views/DemoView.vue')
 const ResearchView = () => import('@/views/ResearchView.vue')
+const ResearchDetailView = () => import('@/views/ResearchDetailView.vue')
 const UseCasesView = () => import('@/views/UseCasesView.vue')
 
 const router = createRouter({
@@ -15,6 +16,7 @@ const router = createRouter({
     { path: '/', name: 'home', component: HomeView },
     { path: '/demo', name: 'demo', component: DemoView },
     { path: '/research', name: 'research', component: ResearchView },
+    { path: '/research/:id', name: 'research-detail', component: ResearchDetailView },
     { path: '/use-cases', name: 'use-cases', component: UseCasesView },
     { path: '/pricing', name: 'pricing', component: PricingView },
     { path: '/docs', name: 'docs', component: DocsView },

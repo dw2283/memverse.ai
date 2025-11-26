@@ -47,8 +47,9 @@
           </div>
 
           <!-- Action Buttons -->
-          <div v-if="currentBlog.arxiv" class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3">
             <a 
+              v-if="currentBlog.arxiv"
               :href="currentBlog.arxiv" 
               target="_blank"
               rel="noopener noreferrer"
@@ -81,24 +82,94 @@
 
         <!-- Blog Content Sections -->
         <div class="space-y-12">
-          <!-- Project Overview -->
-          <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🌟 Project Overview</h2>
-            <div class="space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
-              <p>
-                MemVerse is a <strong>model-agnostic, plug-and-play memory framework</strong> designed to equip AI agents with lifelong multimodal learning capabilities. 
-                By bridging fast parametric recall and hierarchical retrieval-based memory, it solves core limitations of current AI systems—catastrophic forgetting, 
-                poor long-horizon reasoning, and disconnected multimodal understanding.
-              </p>
-              <p>
-                Unlike stateless models or rigid memory solutions, MemVerse enables agents to accumulate, organize, and adaptively use knowledge from text, images, 
-                audio, and video, supporting coherent interaction in real-world environments.
-              </p>
-            </div>
-          </section>
+          <!-- MemVerse Content -->
+          <template v-if="blogId === 0">
+            <!-- Project Overview -->
+            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
+              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🌟 Project Overview</h2>
+              <div class="space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
+                <p>
+                  MemVerse is a <strong>model-agnostic, plug-and-play memory framework</strong> designed to equip AI agents with lifelong multimodal learning capabilities. 
+                  By bridging fast parametric recall and hierarchical retrieval-based memory, it solves core limitations of current AI systems—catastrophic forgetting, 
+                  poor long-horizon reasoning, and disconnected multimodal understanding.
+                </p>
+                <p>
+                  Unlike stateless models or rigid memory solutions, MemVerse enables agents to accumulate, organize, and adaptively use knowledge from text, images, 
+                  audio, and video, supporting coherent interaction in real-world environments.
+                </p>
+              </div>
+            </section>
+          </template>
 
-          <!-- Core Challenges -->
-          <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
+          <!-- MGA Content -->
+          <template v-else-if="blogId === 1">
+            <!-- Project Overview -->
+            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
+              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🌟 Project Overview</h2>
+              <div class="space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
+                <p>
+                  MGA (Memory-Driven GUI Agent) is a <strong>memory-driven framework</strong> designed for observation-centric interaction with graphical user interfaces. 
+                  Unlike traditional GUI agents that rely solely on current screen state, MGA leverages persistent memory to remember UI patterns, user preferences, 
+                  and interaction history, enabling more efficient and context-aware task automation.
+                </p>
+                <p>
+                  By integrating memory systems with GUI interaction capabilities, MGA can learn from past interactions, adapt to different application layouts, 
+                  and maintain context across multiple sessions, significantly improving automation accuracy and user experience.
+                </p>
+              </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
+              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🔑 Key Features</h2>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 rounded-xl border p-6">
+                  <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
+                    <el-icon class="text-purple-600 text-2xl"><i-ep-collection /></el-icon>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-3">Memory-Driven Interaction</h3>
+                  <p class="text-gray-700 leading-relaxed">
+                    Remembers UI patterns, element locations, and interaction sequences to improve task execution accuracy.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl border p-6">
+                  <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
+                    <el-icon class="text-blue-600 text-2xl"><i-ep-monitor /></el-icon>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-3">Observation-Centric Design</h3>
+                  <p class="text-gray-700 leading-relaxed">
+                    Focuses on understanding GUI state through observation rather than relying on internal application APIs.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl border p-6">
+                  <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mb-4">
+                    <el-icon class="text-green-600 text-2xl"><i-ep-refresh /></el-icon>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-3">Cross-Session Learning</h3>
+                  <p class="text-gray-700 leading-relaxed">
+                    Maintains context and learned patterns across multiple interaction sessions for continuous improvement.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl border p-6">
+                  <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4">
+                    <el-icon class="text-orange-600 text-2xl"><i-ep-connection /></el-icon>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-3">Adaptive Automation</h3>
+                  <p class="text-gray-700 leading-relaxed">
+                    Adapts to different application layouts and UI changes by leveraging stored memory patterns.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </template>
+
+          <!-- MemVerse Specific Content -->
+          <template v-if="blogId === 0">
+            <!-- Core Challenges -->
+            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🎯 Core Challenges Addressed</h2>
             <p class="text-lg sm:text-xl text-gray-600 mb-8">
               Current AI memory systems face three critical bottlenecks that MemVerse overcomes.
@@ -361,6 +432,7 @@
               </div>
             </div>
           </section>
+          </template>
         </div>
       </div>
     </article>
@@ -408,21 +480,12 @@ const blogs = [
     arxiv: 'https://arxiv.org/abs/XXXX.XXXXX'
   },
   {
-    title: 'Hierarchical Memory Architecture for AI Agents',
-    summary: 'Exploring the design principles behind MemVerse\'s three-tier memory system.',
-    date: '2024',
-    readTime: '10 min read',
-    category: 'Technical Deep Dive',
-    tags: ['Architecture', 'Memory Systems', 'Design'],
-    image: undefined
-  },
-  {
-    title: 'Benchmark Results: MemVerse vs Traditional RAG',
-    summary: 'Comprehensive evaluation results showing MemVerse\'s performance across benchmarks.',
+    title: 'MGA: Memory-Driven GUI Agent for Observation-Centric Interaction',
+    summary: 'A memory-driven GUI agent framework that enables observation-centric interaction with graphical user interfaces. MGA leverages persistent memory to remember UI patterns, user preferences, and interaction history for efficient task automation.',
     date: '2024',
     readTime: '12 min read',
-    category: 'Benchmarks',
-    tags: ['Performance', 'Benchmarks', 'Evaluation'],
+    category: 'Research Paper',
+    tags: ['GUI Agent', 'Memory Systems', 'Automation'],
     image: undefined
   }
 ]
