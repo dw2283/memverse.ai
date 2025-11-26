@@ -6,10 +6,10 @@
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-6 sm:mb-8">
             <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 px-2">
-              Research & Publications
+              MemVerse Blog
             </h1>
             <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
-              Explore our latest research papers, technical insights, and contributions to AI memory systems.
+              Explore our latest research, technical insights, and contributions to AI memory systems.
             </p>
           </div>
         </div>
@@ -148,8 +148,9 @@ function viewBlogDetail(index: number) {
   if (index === 0) {
     window.open('https://arxiv.org/abs/XXXX.XXXXX', '_blank')
   } else {
-    // Card 2 (MGA) navigates to detail page
+    // Card 2 (MGA) navigates to detail page (or can open arXiv link)
     router.push(`/research/${index}`)
+    // Alternatively, to open arXiv directly: window.open('https://arxiv.org/pdf/2510.24168', '_blank')
   }
 }
 

@@ -60,6 +60,57 @@
     </div>
   </section>
 
+  <!-- Video Demo Section -->
+  <section class="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-12 sm:py-16 md:py-20 lg:py-24 border-b border-gray-800">
+    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8 sm:mb-12">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-2">
+            See MemVerse in Action
+          </h2>
+          <p class="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+            Watch how MemVerse transforms AI agents with persistent, multimodal memory
+          </p>
+        </div>
+
+        <!-- Video Container -->
+        <div class="relative w-full bg-gray-900/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-800 overflow-hidden shadow-2xl">
+          <div class="aspect-video w-full">
+            <!-- Placeholder for video - Replace with your actual video embed code -->
+            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20">
+              <!-- YouTube/Vimeo embed example -->
+              <!-- Replace this div with your video embed code -->
+              <iframe
+                v-if="videoUrl"
+                :src="videoUrl"
+                class="w-full h-full"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              
+              <!-- Placeholder when no video URL -->
+              <div v-else class="text-center p-8">
+                <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                  <el-icon class="text-white text-4xl"><i-ep-video-play /></el-icon>
+                </div>
+                <p class="text-gray-400 text-lg mb-2">Video Demo Coming Soon</p>
+                <p class="text-gray-500 text-sm">Add your video URL to see the demo here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Description -->
+        <div class="mt-6 sm:mt-8 text-center">
+          <p class="text-sm sm:text-base text-gray-500">
+            Experience MemVerse's memory capabilities in real-time
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Why MemVerse -->
   <section class="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
     <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -253,6 +304,11 @@ const { success, error } = useNotification()
 const { loading, start, stop } = useLoading(false, 'Submitting...')
 
 const form = ref({ email: '' })
+
+// Video demo URL - Replace with your actual video URL (YouTube, Vimeo, etc.)
+// Example: 'https://www.youtube.com/embed/YOUR_VIDEO_ID'
+// Or: 'https://player.vimeo.com/video/YOUR_VIDEO_ID'
+const videoUrl = ref<string>('')
 
 // FAQ data
 const faqs = ref([

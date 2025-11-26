@@ -2,74 +2,59 @@
   <div class="min-h-screen bg-white">
     <!-- Blog Header -->
     <section class="bg-white border-b">
-      <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12">
-        <div class="max-w-4xl mx-auto">
+      <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-6 sm:py-8">
+        <div class="max-w-3xl mx-auto">
           <!-- Breadcrumb -->
-          <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
+          <nav class="flex items-center gap-2 text-xs text-gray-500 mb-6">
             <router-link to="/" class="hover:text-gray-900 transition-colors">Home</router-link>
             <span>/</span>
             <router-link to="/research" class="hover:text-gray-900 transition-colors">Research</router-link>
             <span>/</span>
-            <span class="text-gray-900 font-medium">{{ currentBlog.title }}</span>
+            <span class="text-gray-900">{{ currentBlog.title }}</span>
           </nav>
 
-          <!-- Category Badge -->
-          <div class="mb-4">
-            <span class="px-3 py-1.5 bg-blue-100 text-blue-800 rounded-lg text-xs font-semibold">
-              {{ currentBlog.category }}
-            </span>
-          </div>
-
           <!-- Title -->
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 leading-tight">
             {{ currentBlog.title }}
           </h1>
 
           <!-- Meta Info -->
-          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
-            <div class="flex items-center gap-2">
-              <span class="font-medium">Published at</span>
-              <span>{{ currentBlog.date }}</span>
-            </div>
+          <div class="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
+            <span>{{ currentBlog.date }}</span>
             <span>•</span>
             <span>{{ currentBlog.readTime }}</span>
           </div>
 
           <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-8">
+          <div class="flex flex-wrap gap-2 mb-6">
             <span 
               v-for="tag in currentBlog.tags" 
               :key="tag"
-              class="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-md"
+              class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded"
             >
               #{{ tag }}
             </span>
           </div>
 
           <!-- Action Buttons -->
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-2">
             <a 
               v-if="currentBlog.arxiv"
               :href="currentBlog.arxiv" 
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              class="inline-flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition-colors"
             >
-              <el-icon><i-ep-document /></el-icon>
               View on arXiv
             </a>
-            <BaseButton size="default" @click="goBack" class="border border-gray-300">
-              <el-icon class="mr-2"><i-ep-arrow-left /></el-icon>
-              Back to Research
-            </BaseButton>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Blog Content -->
-    <article class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-12 sm:py-16 md:py-20 bg-gray-50">
-      <div class="max-w-4xl mx-auto">
+    <article class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12 bg-white">
+      <div class="max-w-3xl mx-auto">
         <!-- Featured Image -->
         <div v-if="currentBlog.image" class="mb-8 rounded-xl overflow-hidden shadow-lg">
           <img 
@@ -85,9 +70,9 @@
           <!-- MemVerse Content -->
           <template v-if="blogId === 0">
             <!-- Project Overview -->
-            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🌟 Project Overview</h2>
-              <div class="space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-6">Project Overview</h2>
+              <div class="space-y-4 text-gray-700 leading-relaxed text-sm text-sm sm:text-base">
                 <p>
                   MemVerse is a <strong>model-agnostic, plug-and-play memory framework</strong> designed to equip AI agents with lifelong multimodal learning capabilities. 
                   By bridging fast parametric recall and hierarchical retrieval-based memory, it solves core limitations of current AI systems—catastrophic forgetting, 
@@ -104,64 +89,231 @@
           <!-- MGA Content -->
           <template v-else-if="blogId === 1">
             <!-- Project Overview -->
-            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🌟 Project Overview</h2>
-              <div class="space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-6">Project Overview</h2>
+              <div class="space-y-4 text-gray-700 leading-relaxed text-sm text-sm sm:text-base">
                 <p>
-                  MGA (Memory-Driven GUI Agent) is a <strong>memory-driven framework</strong> designed for observation-centric interaction with graphical user interfaces. 
-                  Unlike traditional GUI agents that rely solely on current screen state, MGA leverages persistent memory to remember UI patterns, user preferences, 
-                  and interaction history, enabling more efficient and context-aware task automation.
+                  MGA (Memory-Driven GUI Agent) introduces a novel <strong>observation-centric interaction paradigm</strong> for graphical user interface automation. 
+                  Unlike traditional GUI agents that rely on sequential action histories, MGA treats each step as an independent, context-rich environment state, 
+                  significantly reducing error propagation and improving robustness.
                 </p>
                 <p>
-                  By integrating memory systems with GUI interaction capabilities, MGA can learn from past interactions, adapt to different application layouts, 
-                  and maintain context across multiple sessions, significantly improving automation accuracy and user experience.
+                  The framework leverages a <strong>triple-state representation</strong> combining current screenshots, task-agnostic spatial information, 
+                  and dynamically updated structured memory. This approach enables MGA to achieve superior performance in complex desktop and web environments 
+                  while maintaining strong generalization capabilities across different applications and tasks.
+                </p>
+                <p>
+                  MGA demonstrates significant improvements over state-of-the-art baselines in robustness, generalization, and efficiency across OSworld benchmarks, 
+                  real desktop applications (Chrome, VSCode, VLC), and cross-task transfer scenarios.
                 </p>
               </div>
             </section>
 
-            <!-- Key Features -->
-            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-              <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🔑 Key Features</h2>
-              <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-gray-50 rounded-xl border p-6">
-                  <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
-                    <el-icon class="text-purple-600 text-2xl"><i-ep-collection /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-3">Memory-Driven Interaction</h3>
-                  <p class="text-gray-700 leading-relaxed">
-                    Remembers UI patterns, element locations, and interaction sequences to improve task execution accuracy.
+            <!-- Core Challenges -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Challenges Addressed</h2>
+              <p class="text-sm text-gray-600 mb-6">
+                Traditional GUI agents face several critical limitations that MGA overcomes.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="border-l-2 border-red-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Error Propagation</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Sequential action histories cause errors to accumulate and propagate through the interaction chain, leading to task failure.
                   </p>
                 </div>
 
-                <div class="bg-gray-50 rounded-xl border p-6">
-                  <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
-                    <el-icon class="text-blue-600 text-2xl"><i-ep-monitor /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-3">Observation-Centric Design</h3>
-                  <p class="text-gray-700 leading-relaxed">
-                    Focuses on understanding GUI state through observation rather than relying on internal application APIs.
+                <div class="border-l-2 border-orange-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Limited Observation Utilization</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Existing agents fail to effectively leverage rich interface cues, resulting in local exploration bias and inefficient navigation.
                   </p>
                 </div>
 
-                <div class="bg-gray-50 rounded-xl border p-6">
-                  <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mb-4">
-                    <el-icon class="text-green-600 text-2xl"><i-ep-refresh /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-3">Cross-Session Learning</h3>
-                  <p class="text-gray-700 leading-relaxed">
-                    Maintains context and learned patterns across multiple interaction sessions for continuous improvement.
+                <div class="border-l-2 border-yellow-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Poor Generalization</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Agents struggle to adapt to different application layouts, UI changes, and cross-task scenarios without extensive retraining.
                   </p>
                 </div>
 
-                <div class="bg-gray-50 rounded-xl border p-6">
-                  <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4">
-                    <el-icon class="text-orange-600 text-2xl"><i-ep-connection /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-3">Adaptive Automation</h3>
-                  <p class="text-gray-700 leading-relaxed">
-                    Adapts to different application layouts and UI changes by leveraging stored memory patterns.
+                <div class="border-l-2 border-blue-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Context Loss</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Lack of persistent memory prevents agents from learning from past interactions and maintaining context across sessions.
                   </p>
                 </div>
+              </div>
+
+              <p class="text-sm text-gray-700 italic border-l-2 border-purple-500 pl-4 py-2">
+                MGA addresses these challenges through its observation-first paradigm and triple-state memory representation, 
+                treating each step as an independent decision point with rich contextual information.
+              </p>
+            </section>
+
+            <!-- Technical Architecture -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Technical Architecture</h2>
+              <p class="text-sm text-gray-600 mb-6">
+                MGA's design centers on observation-centric interaction with a triple-state representation.
+              </p>
+
+              <div class="space-y-6">
+                <!-- Observation-Centric Paradigm -->
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-3">Observation-First Interaction</h3>
+                  <div class="space-y-3 text-sm text-gray-700">
+                    <p>
+                      MGA adopts a <strong>"observe first, decide later"</strong> approach where each step is treated as an independent, 
+                      context-rich environment state. This paradigm eliminates dependency on historical action trajectories, 
+                      preventing error propagation and enabling more robust decision-making.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-sm">
+                      <li>Each interaction step is self-contained with full environmental context</li>
+                      <li>No reliance on sequential action histories</li>
+                      <li>Reduced error accumulation and propagation</li>
+                      <li>Better utilization of interface cues and visual information</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Triple-State Representation -->
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-3">Triple-State Representation</h3>
+                  <p class="text-sm text-gray-700 mb-4">
+                    Each state in MGA consists of three complementary components:
+                  </p>
+                  <div class="grid md:grid-cols-3 gap-3">
+                    <div class="border-l-2 border-blue-500 pl-3">
+                      <h4 class="text-sm font-semibold text-gray-900 mb-1">1. Current Screenshot</h4>
+                      <p class="text-xs text-gray-700">
+                        Visual representation of the current GUI state, capturing all visible elements and their spatial relationships.
+                      </p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                      <h4 class="text-sm font-semibold text-gray-900 mb-1">2. Spatial Information</h4>
+                      <p class="text-xs text-gray-700">
+                        Task-agnostic spatial cues including element positions, sizes, and hierarchical structures.
+                      </p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                      <h4 class="text-sm font-semibold text-gray-900 mb-1">3. Structured Memory</h4>
+                      <p class="text-xs text-gray-700">
+                        Dynamically updated memory containing learned UI patterns, interaction sequences, and task-specific knowledge.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Memory System -->
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-3">Memory-Driven Learning</h3>
+                  <div class="space-y-3 text-sm text-gray-700">
+                    <p>
+                      MGA's memory system enables continuous learning and adaptation:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                      <li><strong>UI Pattern Memory:</strong> Stores learned patterns of common interface elements and layouts</li>
+                      <li><strong>Interaction Sequences:</strong> Remembers successful action sequences for recurring tasks</li>
+                      <li><strong>Cross-Session Context:</strong> Maintains knowledge across multiple interaction sessions</li>
+                      <li><strong>Adaptive Updates:</strong> Dynamically updates memory based on new observations and experiences</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Key Results -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Key Results</h2>
+              <p class="text-sm text-gray-600 mb-6">
+                MGA demonstrates superior performance across multiple benchmarks and real-world applications.
+              </p>
+
+              <!-- Benchmark Results Table -->
+              <div class="border overflow-hidden mb-6">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Benchmark</th>
+                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Key Metric</th>
+                        <th class="px-4 py-2 text-left font-semibold text-gray-900">MGA Performance</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                      <tr>
+                        <td class="px-4 py-2 font-medium text-gray-900">OSworld</td>
+                        <td class="px-4 py-2 text-gray-700">Task Success Rate</td>
+                        <td class="px-4 py-2 font-semibold text-green-600">Significantly Improved</td>
+                      </tr>
+                      <tr class="bg-gray-50">
+                        <td class="px-4 py-2 font-medium text-gray-900">Real Desktop Apps</td>
+                        <td class="px-4 py-2 text-gray-700">Robustness</td>
+                        <td class="px-4 py-2 font-semibold text-green-600">Superior to Baselines</td>
+                      </tr>
+                      <tr>
+                        <td class="px-4 py-2 font-medium text-gray-900">Cross-Task Transfer</td>
+                        <td class="px-4 py-2 text-gray-700">Generalization</td>
+                        <td class="px-4 py-2 font-semibold text-blue-600">Strong Performance</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- Core Contributions -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Contributions</h2>
+              <div class="space-y-4">
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Observation-Centric Paradigm</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Introduces a novel "observe first, decide later" interaction paradigm that treats each step as independent, reducing error propagation.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Triple-State Representation</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Proposes a comprehensive state representation combining screenshots, spatial information, and structured memory.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Memory-Driven Learning</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Enables continuous learning from past interactions, improving performance across sessions and tasks.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Superior Performance</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Demonstrates significant improvements in robustness, generalization, and efficiency across multiple benchmarks and real applications.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Paper Link -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Paper & Resources</h2>
+              <div class="space-y-3">
+                <a 
+                  href="https://arxiv.org/pdf/2510.24168" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition-colors"
+                >
+                  View Paper on arXiv
+                </a>
+                <p class="text-xs text-gray-600">
+                  The code for MGA is publicly available. For implementation details and to use MGA in your projects, 
+                  please refer to the paper and associated repository.
+                </p>
               </div>
             </section>
           </template>
@@ -169,81 +321,65 @@
           <!-- MemVerse Specific Content -->
           <template v-if="blogId === 0">
             <!-- Core Challenges -->
-            <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🎯 Core Challenges Addressed</h2>
-            <p class="text-lg sm:text-xl text-gray-600 mb-8">
+            <section class="mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Core Challenges Addressed</h2>
+            <p class="text-sm text-gray-600 mb-6">
               Current AI memory systems face three critical bottlenecks that MemVerse overcomes.
             </p>
 
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
-              <div class="bg-white rounded-xl border p-6 shadow-sm">
-                <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
-                  <el-icon class="text-red-600 text-2xl"><i-ep-info-filled /></el-icon>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Parameter Dependency</h3>
-                <p class="text-gray-700 leading-relaxed">
+            <div class="space-y-4 mb-6">
+              <div class="border-l-2 border-red-500 pl-4">
+                <h3 class="text-base font-semibold text-gray-900 mb-2">Parameter Dependency</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
                   Memory tied to model weights limits scalability and causes catastrophic forgetting.
                 </p>
               </div>
 
-              <div class="bg-white rounded-xl border p-6 shadow-sm">
-                <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4">
-                  <el-icon class="text-orange-600 text-2xl"><i-ep-folder-opened /></el-icon>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Unstructured Storage</h3>
-                <p class="text-gray-700 leading-relaxed">
+              <div class="border-l-2 border-orange-500 pl-4">
+                <h3 class="text-base font-semibold text-gray-900 mb-2">Unstructured Storage</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
                   Raw data logs in RAG-style systems lead to inefficient retrieval and redundancy.
                 </p>
               </div>
 
-              <div class="bg-white rounded-xl border p-6 shadow-sm">
-                <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center mb-4">
-                  <el-icon class="text-yellow-600 text-2xl"><i-ep-picture /></el-icon>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Modality Silos</h3>
-                <p class="text-gray-700 leading-relaxed">
+              <div class="border-l-2 border-yellow-500 pl-4">
+                <h3 class="text-base font-semibold text-gray-900 mb-2">Modality Silos</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
                   Text-centric memory fails to align visual, auditory, and linguistic information.
                 </p>
               </div>
             </div>
 
-            <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-200 p-6">
-              <p class="text-gray-700 leading-relaxed text-center">
-                <strong>MemVerse overcomes these by unifying complementary memory mechanisms, mirroring the "fast and slow thinking" of human cognition.</strong>
-              </p>
-            </div>
+            <p class="text-sm text-gray-700 italic border-l-2 border-blue-500 pl-4 py-2">
+              MemVerse overcomes these by unifying complementary memory mechanisms, mirroring the "fast and slow thinking" of human cognition.
+            </p>
           </section>
 
           <!-- Technical Architecture -->
-          <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🔧 Technical Architecture</h2>
-            <p class="text-lg sm:text-xl text-gray-600 mb-8">
+          <section class="mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Technical Architecture</h2>
+            <p class="text-sm text-gray-600 mb-6">
               MemVerse's design integrates three core memory components, coordinated by a central orchestrator.
             </p>
 
             <!-- Architecture Image -->
-            <div class="bg-white rounded-xl border p-6 shadow-sm mb-8">
+            <div class="mb-6">
               <img 
                 src="https://dw2283.github.io/memweb/research/architecture.png" 
                 alt="MemVerse Architecture" 
-                class="w-full h-auto rounded-lg"
+                class="w-full h-auto"
                 @error="handleImageError"
               />
-              <p class="text-sm text-gray-600 mt-4 text-center italic">
+              <p class="text-xs text-gray-500 mt-2 text-center">
                 Figure 2: MemVerse's unified memory framework (from paper)
               </p>
             </div>
 
             <div class="space-y-6">
               <!-- Hierarchical Retrieval-Based Memory -->
-              <div class="bg-white rounded-xl border p-8 shadow-sm">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <el-icon class="text-blue-600 text-2xl"><i-ep-collection /></el-icon>
-                  </div>
-                  <h3 class="text-2xl font-bold text-gray-900">Hierarchical Retrieval-Based Memory</h3>
-                </div>
-                <div class="space-y-4 text-gray-700">
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-3">Hierarchical Retrieval-Based Memory</h3>
+                <div class="space-y-3 text-sm text-gray-700">
                   <div>
                     <strong class="text-gray-900">Short-Term Memory (STM):</strong>
                     <p class="mt-1">Caches recent conversational context (sliding window) to avoid redundant long-term storage updates.</p>
@@ -265,41 +401,22 @@
               </div>
 
               <!-- Parametric Memory -->
-              <div class="bg-white rounded-xl border p-8 shadow-sm">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
-                    <el-icon class="text-purple-600 text-2xl"><i-ep-monitor /></el-icon>
-                  </div>
-                  <h3 class="text-2xl font-bold text-gray-900">Parametric Memory</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed mb-4">
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-3">Parametric Memory</h3>
+                <p class="text-sm text-gray-700 mb-3">
                   A lightweight neural model (7B-scale transformer) that:
                 </p>
-                <ul class="space-y-2 text-gray-700">
-                  <li class="flex items-start gap-2">
-                    <el-icon class="text-green-600 mt-1"><i-ep-circle-check /></el-icon>
-                    <span>Periodically distills essential knowledge from LTM via supervised fine-tuning</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <el-icon class="text-green-600 mt-1"><i-ep-circle-check /></el-icon>
-                    <span>Enables fast, differentiable recall (89% faster than RAG) while preserving accuracy</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <el-icon class="text-green-600 mt-1"><i-ep-circle-check /></el-icon>
-                    <span>Dynamically expands with new knowledge without full model retraining</span>
-                  </li>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Periodically distills essential knowledge from LTM via supervised fine-tuning</li>
+                  <li>Enables fast, differentiable recall (89% faster than RAG) while preserving accuracy</li>
+                  <li>Dynamically expands with new knowledge without full model retraining</li>
                 </ul>
               </div>
 
               <!-- Memory Orchestrator -->
-              <div class="bg-white rounded-xl border p-8 shadow-sm">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
-                    <el-icon class="text-green-600 text-2xl"><i-ep-connection /></el-icon>
-                  </div>
-                  <h3 class="text-2xl font-bold text-gray-900">Memory Orchestrator</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed">
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-3">Memory Orchestrator</h3>
+                <p class="text-sm text-gray-700">
                   A rule-based controller that manages storage, retrieval, and integration across STM, LTM, and parametric memory—no additional trainable parameters required.
                 </p>
               </div>
@@ -307,126 +424,74 @@
           </section>
 
           <!-- Key Results -->
-          <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">📊 Key Results</h2>
-            <p class="text-lg sm:text-xl text-gray-600 mb-8">
+          <section class="mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Key Results</h2>
+            <p class="text-sm text-gray-600 mb-6">
               MemVerse outperforms state-of-the-art models across diverse multimodal benchmarks.
             </p>
 
             <!-- Benchmark Results Table -->
-            <div class="bg-white rounded-xl border overflow-hidden shadow-sm mb-8">
+            <div class="border overflow-hidden mb-6">
               <div class="overflow-x-auto">
-                <table class="w-full">
+                <table class="w-full text-sm">
                   <thead class="bg-gray-50">
                     <tr>
-                      <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Benchmark</th>
-                      <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Key Metric</th>
-                      <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900">MemVerse Performance</th>
+                      <th class="px-4 py-2 text-left font-semibold text-gray-900">Benchmark</th>
+                      <th class="px-4 py-2 text-left font-semibold text-gray-900">Key Metric</th>
+                      <th class="px-4 py-2 text-left font-semibold text-gray-900">MemVerse Performance</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200">
                     <tr>
-                      <td class="px-6 py-4 text-sm font-medium text-gray-900">ScienceQA</td>
-                      <td class="px-6 py-4 text-sm text-gray-700">Average Accuracy</td>
-                      <td class="px-6 py-4 text-sm font-semibold text-green-600">85.48% (SOTA)</td>
+                      <td class="px-4 py-2 font-medium text-gray-900">ScienceQA</td>
+                      <td class="px-4 py-2 text-gray-700">Average Accuracy</td>
+                      <td class="px-4 py-2 font-semibold text-green-600">85.48% (SOTA)</td>
                     </tr>
                     <tr class="bg-gray-50">
-                      <td class="px-6 py-4 text-sm font-medium text-gray-900">LoCoMo</td>
-                      <td class="px-6 py-4 text-sm text-gray-700">Overall F1</td>
-                      <td class="px-6 py-4 text-sm font-semibold text-green-600">24.7 (Top 1)</td>
+                      <td class="px-4 py-2 font-medium text-gray-900">LoCoMo</td>
+                      <td class="px-4 py-2 text-gray-700">Overall F1</td>
+                      <td class="px-4 py-2 font-semibold text-green-600">24.7 (Top 1)</td>
                     </tr>
                     <tr>
-                      <td class="px-6 py-4 text-sm font-medium text-gray-900">ScienceQA</td>
-                      <td class="px-6 py-4 text-sm text-gray-700">Query Time</td>
-                      <td class="px-6 py-4 text-sm font-semibold text-blue-600">2.28s (89% faster than RAG)</td>
+                      <td class="px-4 py-2 font-medium text-gray-900">ScienceQA</td>
+                      <td class="px-4 py-2 text-gray-700">Query Time</td>
+                      <td class="px-4 py-2 font-semibold text-blue-600">2.28s (89% faster than RAG)</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <!-- Detailed Results -->
-            <div class="grid md:grid-cols-3 gap-6">
-              <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200 p-8">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">ScienceQA (Multimodal Reasoning)</h3>
-                <div class="text-4xl font-bold text-green-700 mb-2">85.48%</div>
-                <p class="text-gray-700 text-sm mb-2">Average accuracy (GPT-4o-mini + MemVerse)</p>
-                <ul class="text-sm text-gray-600 space-y-1 mt-4">
-                  <li>• Natural science: 85.26%</li>
-                  <li>• Social science: 81.55%</li>
-                  <li>• Language tasks: 89.09%</li>
-                </ul>
-                <p class="text-sm text-gray-600 mt-4">2.28s average query time—89% faster than traditional RAG (20.17s)</p>
-              </div>
-
-              <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 p-8">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">LoCoMo (Long-Term Conversation)</h3>
-                <div class="text-4xl font-bold text-blue-700 mb-2">24.7</div>
-                <p class="text-gray-700 text-sm mb-2">Overall F1 score</p>
-                <p class="text-sm text-gray-600 mt-4">
-                  Outperforming Zep (23.22) and other memory-augmented baselines. STM excels in coherent dialogue reasoning, while LTM handles cross-session knowledge.
-                </p>
-              </div>
-
-              <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200 p-8">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">MSR-VTT (Video-Text Alignment)</h3>
-                <div class="text-4xl font-bold text-purple-700 mb-2">Strong</div>
-                <p class="text-gray-700 text-sm mb-2">Cross-modal retrieval performance</p>
-                <p class="text-sm text-gray-600 mt-4">
-                  Demonstrating effective alignment of dynamic visual content and natural language (full results in Appendix C).
-                </p>
-              </div>
-            </div>
           </section>
 
           <!-- Core Contributions -->
-          <section class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">🚀 Core Contributions</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
-                    <el-icon class="text-white text-xl"><i-ep-link /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900">Unified Memory Interface</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed">
+          <section class="mb-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Core Contributions</h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-2">Unified Memory Interface</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
                   Plug-and-play design works with any LLM/VLM, no model retraining required.
                 </p>
               </div>
 
-              <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200 p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center">
-                    <el-icon class="text-white text-xl"><i-ep-collection /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900">Structured Multimodal Knowledge</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed">
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-2">Structured Multimodal Knowledge</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
                   Hierarchical knowledge graphs transform raw data into actionable, interpretable memory.
                 </p>
               </div>
 
-              <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200 p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center">
-                    <el-icon class="text-white text-xl"><i-ep-lightning /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900">Efficient Dual-Path Recall</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed">
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-2">Efficient Dual-Path Recall</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
                   Periodic distillation balances fast parametric access and deep retrieval-based reasoning.
                 </p>
               </div>
 
-              <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-lg bg-orange-600 flex items-center justify-center">
-                    <el-icon class="text-white text-xl"><i-ep-refresh /></el-icon>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900">Lifelong Learning Support</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed">
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-2">Lifelong Learning Support</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">
                   Adaptive forgetting and bounded growth prevent redundancy and catastrophic forgetting.
                 </p>
               </div>
@@ -486,7 +551,8 @@ const blogs = [
     readTime: '12 min read',
     category: 'Research Paper',
     tags: ['GUI Agent', 'Memory Systems', 'Automation'],
-    image: undefined
+    image: undefined,
+    arxiv: 'https://arxiv.org/pdf/2510.24168'
   }
 ]
 
