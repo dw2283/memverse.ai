@@ -12,18 +12,6 @@
         <nav class="flex items-center gap-6">
           <router-link 
             class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            to="/demo"
-          >
-            Demo
-          </router-link>
-          <router-link 
-            class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            to="/use-cases"
-          >
-            Use Cases
-          </router-link>
-          <router-link 
-            class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
             to="/research"
           >
             Research

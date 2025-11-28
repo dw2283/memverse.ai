@@ -84,6 +84,192 @@
                 </p>
               </div>
             </section>
+
+            <!-- Core Challenges -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Challenges Addressed</h2>
+              <p class="text-sm text-gray-600 mb-6">
+                Current AI systems face fundamental limitations that MemVerse addresses through its unified memory architecture.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="border-l-2 border-red-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Catastrophic Forgetting</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    AI models lose previously learned knowledge when trained on new data, preventing continuous learning and knowledge accumulation.
+                  </p>
+                </div>
+
+                <div class="border-l-2 border-orange-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Poor Long-Horizon Reasoning</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Limited context windows and lack of persistent memory prevent agents from maintaining coherence across extended interactions and complex tasks.
+                  </p>
+                </div>
+
+                <div class="border-l-2 border-yellow-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Disconnected Multimodal Understanding</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Existing systems struggle to maintain consistent understanding across text, images, audio, and video modalities.
+                  </p>
+                </div>
+
+                <div class="border-l-2 border-blue-500 pl-4">
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Inefficient Memory Retrieval</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Traditional retrieval systems suffer from high latency and token costs, limiting real-time application performance.
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-sm text-gray-700 italic border-l-2 border-purple-500 pl-4 py-2">
+                MemVerse addresses these challenges through its unified memory architecture combining parametric and retrieval-based memory, 
+                enabling efficient, scalable, and multimodal knowledge management for AI agents.
+              </p>
+            </section>
+
+            <!-- Technical Architecture -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Technical Architecture</h2>
+              <p class="text-sm text-gray-600 mb-6">
+                MemVerse integrates three core memory components to enable lifelong multimodal learning.
+              </p>
+
+              <div class="space-y-6">
+                <!-- Hierarchical Retrieval-Based Memory -->
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-3">Hierarchical Retrieval-Based Memory</h3>
+                  <div class="space-y-3 text-sm text-gray-700">
+                    <p>
+                      MemVerse employs a <strong>two-tier retrieval system</strong> for efficient memory access:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-sm">
+                      <li><strong>Short-term Memory:</strong> Fast-access cache for recent interactions and frequently accessed information</li>
+                      <li><strong>Long-term Memory:</strong> Persistent storage with hierarchical indexing for efficient retrieval across large knowledge bases</li>
+                      <li>Adaptive retrieval strategies that balance speed and relevance</li>
+                      <li>Multimodal encoding that maintains semantic relationships across modalities</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Parametric Memory -->
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-3">Parametric Memory</h3>
+                  <p class="text-sm text-gray-700 mb-4">
+                    A lightweight neural model that learns compressed representations of frequently accessed knowledge:
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-3">
+                    <div class="border-l-2 border-blue-500 pl-3">
+                      <h4 class="text-sm font-semibold text-gray-900 mb-1">Knowledge Compression</h4>
+                      <p class="text-xs text-gray-700">
+                        Efficiently encodes patterns and relationships into compact parametric representations.
+                      </p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                      <h4 class="text-sm font-semibold text-gray-900 mb-1">Fast Recall</h4>
+                      <p class="text-xs text-gray-700">
+                        Enables instant access to learned patterns without external retrieval overhead.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Memory Orchestrator -->
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-3">Memory Orchestrator</h3>
+                  <div class="space-y-3 text-sm text-gray-700">
+                    <p>
+                      The orchestrator manages storage, retrieval, and integration across all memory types:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                      <li><strong>Unified Storage:</strong> Seamlessly stores and indexes information across all modalities</li>
+                      <li><strong>Intelligent Retrieval:</strong> Selects optimal memory source based on query characteristics and context</li>
+                      <li><strong>Cross-Modal Integration:</strong> Maintains semantic consistency across text, images, audio, and video</li>
+                      <li><strong>Adaptive Updates:</strong> Dynamically updates memory based on usage patterns and new information</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Key Results -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Key Results</h2>
+              <p class="text-sm text-gray-600 mb-6">
+                MemVerse demonstrates significant improvements in performance, efficiency, and scalability.
+              </p>
+
+              <!-- Performance Metrics -->
+              <div class="border overflow-hidden mb-6">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Metric</th>
+                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Improvement</th>
+                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Impact</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                      <tr>
+                        <td class="px-4 py-2 font-medium text-gray-900">Recall Speed</td>
+                        <td class="px-4 py-2 text-gray-700">10× faster</td>
+                        <td class="px-4 py-2 font-semibold text-green-600">Millisecond-level retrieval</td>
+                      </tr>
+                      <tr class="bg-gray-50">
+                        <td class="px-4 py-2 font-medium text-gray-900">Token Savings</td>
+                        <td class="px-4 py-2 text-gray-700">89% reduction</td>
+                        <td class="px-4 py-2 font-semibold text-green-600">Significant cost reduction</td>
+                      </tr>
+                      <tr>
+                        <td class="px-4 py-2 font-medium text-gray-900">Latency</td>
+                        <td class="px-4 py-2 text-gray-700">91% lower</td>
+                        <td class="px-4 py-2 font-semibold text-blue-600">Real-time performance</td>
+                      </tr>
+                      <tr class="bg-gray-50">
+                        <td class="px-4 py-2 font-medium text-gray-900">Cost Efficiency</td>
+                        <td class="px-4 py-2 text-gray-700">70% lower</td>
+                        <td class="px-4 py-2 font-semibold text-blue-600">Enterprise-grade scalability</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- Core Contributions -->
+            <section class="mb-8">
+              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Contributions</h2>
+              <div class="space-y-4">
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Unified Memory Architecture</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Introduces a novel framework that seamlessly integrates parametric and retrieval-based memory, enabling efficient knowledge management across modalities.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Model-Agnostic Design</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Provides a plug-and-play solution that works with any LLM or VLM without requiring model retraining or modification.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Multimodal Memory Support</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Enables consistent understanding and retrieval across text, images, audio, and video, maintaining semantic relationships across modalities.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-base font-semibold text-gray-900 mb-2">Efficient Retrieval System</h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    Achieves 10× faster recall and 89% token savings compared to other memory systems, enabling real-time applications at scale.
+                  </p>
+                </div>
+              </div>
+            </section>
           </template>
 
           <!-- MGA Content -->
@@ -535,9 +721,9 @@ interface Blog {
 
 const blogs = [
   {
-    title: 'MemVerse: Multimodal Memory for Lifelong Learning Agents',
+    title: 'How Memverse Enhances Your AI Agents',
     summary: 'A model-agnostic, plug-and-play memory framework that equips AI agents with lifelong multimodal learning capabilities.',
-    date: '2024',
+    date: '2025',
     readTime: '15 min read',
     category: 'Research Paper',
     tags: ['Memory Systems', 'Multimodal AI', 'Lifelong Learning'],
@@ -545,9 +731,9 @@ const blogs = [
     arxiv: 'https://arxiv.org/abs/XXXX.XXXXX'
   },
   {
-    title: 'MGA: Memory-Driven GUI Agent for Observation-Centric Interaction',
+    title: 'Application: How Memverse Enhances GUI Agent',
     summary: 'A memory-driven GUI agent framework that enables observation-centric interaction with graphical user interfaces. MGA leverages persistent memory to remember UI patterns, user preferences, and interaction history for efficient task automation.',
-    date: '2024',
+    date: '2025',
     readTime: '12 min read',
     category: 'Research Paper',
     tags: ['GUI Agent', 'Memory Systems', 'Automation'],

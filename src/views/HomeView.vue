@@ -7,34 +7,33 @@
       <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
     </div>
     <div class="relative w-full h-screen px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-center">
-      <div class="max-w-5xl mx-auto w-full space-y-6">
-        <div class="text-center space-y-4">
-          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 leading-tight tracking-tight">
-            Your AI isn't intelligent<br>
-            <span class="bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent">until it remembers</span>
-          </h1>
-          <div class="text-sm sm:text-base max-w-4xl mx-auto leading-relaxed space-y-2">
-            <p class="text-sm sm:text-base md:text-lg font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">
-              Plug MemVerse to your AI agent, unlock memory-powered intelligence.
+      <div class="max-w-6xl mx-auto w-full space-y-8">
+        <div class="text-center space-y-6">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 leading-[1.1] tracking-[-0.02em]">
+            Memory turns AI into intelligence.
+        </h1>
+          <div class="max-w-4xl mx-auto leading-relaxed space-y-3">
+            <p class="text-base sm:text-lg md:text-xl font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">
+              Plug MemVerse to your agent and unlock memory-driven reasoning.
             </p>
-            <p class="text-xs sm:text-sm text-gray-400">
+            <p class="text-sm sm:text-base text-gray-500">
               One-line install. Works with any LLM. No complex setup.
             </p>
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a 
             href="https://github.com/dw2283/memweb" 
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center px-6 py-2.5 bg-gray-900 text-white rounded-full hover:bg-gray-800 hover:shadow-lg hover:scale-105 transition-all duration-200 text-xs font-medium min-w-[160px]"
+            class="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 hover:shadow-lg hover:scale-105 transition-all duration-200 text-sm font-medium min-w-[180px]"
           >
             GitHub
           </a>
           <button 
             @click="goToResearch"
-            class="inline-flex items-center justify-center px-6 py-2.5 bg-white border-2 border-gray-200 text-gray-900 rounded-full hover:border-gray-300 hover:shadow-md hover:scale-105 transition-all duration-200 text-xs font-medium min-w-[160px]"
+            class="inline-flex items-center justify-center px-8 py-3 bg-white border-2 border-gray-200 text-gray-900 rounded-full hover:border-gray-300 hover:shadow-md hover:scale-105 transition-all duration-200 text-sm font-medium min-w-[180px]"
           >
             Explore Research
           </button>
@@ -66,38 +65,41 @@
   </section>
 
   <!-- Why MemVerse -->
-  <section class="bg-white py-20 sm:py-24 md:py-32">
-    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+  <section class="relative bg-gradient-to-b from-gray-50 to-white py-20 sm:py-24 md:py-32 overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 left-10 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-20">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-6">
+        <div class="text-center mb-16">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-5 leading-tight tracking-tight">
             Why MemVerse?
           </h2>
-          <p class="text-base text-gray-500 max-w-2xl mx-auto mb-8">
+          <p class="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Memory infrastructure that adapts to every use-case.
-          </p>
-          <p class="text-lg sm:text-xl text-gray-900 font-light">
-            Works with every model. Faster. Better. Cheaper.
           </p>
         </div>
 
         <!-- Features Grid -->
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
           <!-- Fast Integration -->
-          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-200">
-            <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-              <el-icon class="text-blue-600 text-2xl"><i-ep-lightning /></el-icon>
+          <div class="group text-center p-8 rounded-2xl bg-white border-2 border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+              <el-icon class="text-white text-2xl"><i-ep-lightning /></el-icon>
             </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">Fast Integration</h3>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3 leading-tight">Fast Integration</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
               One-line install. Works with any LLM framework. No complex setup required.
             </p>
           </div>
 
           <!-- Multimodal Support -->
-          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-200">
-            <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
-              <el-icon class="text-purple-600 text-2xl"><i-ep-connection /></el-icon>
+          <div class="group text-center p-8 rounded-2xl bg-white border-2 border-gray-100 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+              <el-icon class="text-white text-2xl"><i-ep-connection /></el-icon>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-3">Multimodal Support</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
@@ -106,9 +108,9 @@
           </div>
 
           <!-- Cost Efficient -->
-          <div class="text-center sm:col-span-2 md:col-span-1 p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-200">
-            <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-              <el-icon class="text-green-600 text-2xl"><i-ep-data-line /></el-icon>
+          <div class="group text-center sm:col-span-2 md:col-span-1 p-8 rounded-2xl bg-white border-2 border-gray-100 hover:border-green-200 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-lg shadow-green-500/20 group-hover:scale-110 transition-transform duration-300">
+              <el-icon class="text-white text-2xl"><i-ep-data-line /></el-icon>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-3">Cost Efficient</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
@@ -119,20 +121,20 @@
 
         <!-- Performance Metrics -->
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-200">
-            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-4">10×</div>
-            <h3 class="text-base font-semibold text-gray-900 mb-3">Faster Recall</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">MemVerse retrieves memories in milliseconds — up to 10× faster than traditional RAG systems.</p>
+          <div class="group text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">10×</div>
+            <h3 class="text-base font-semibold text-gray-900 mb-3 leading-tight">Faster Recall</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">MemVerse retrieves memories in milliseconds — up to 10× faster than other memory systems.</p>
           </div>
 
-          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-200">
-            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-4">89%</div>
+          <div class="group text-center p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-white border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">89%</div>
             <h3 class="text-base font-semibold text-gray-900 mb-3">Token Savings</h3>
             <p class="text-sm text-gray-600 leading-relaxed">Reduce token costs by 89% while maintaining accuracy with efficient memory compression.</p>
           </div>
 
-          <div class="text-center sm:col-span-2 md:col-span-1 p-8 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-200">
-            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent mb-4">70%</div>
+          <div class="group text-center sm:col-span-2 md:col-span-1 p-8 rounded-2xl bg-gradient-to-br from-green-50 to-white border-2 border-green-100 hover:border-green-300 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">70%</div>
             <h3 class="text-base font-semibold text-gray-900 mb-3">Lower Cost</h3>
             <p class="text-sm text-gray-600 leading-relaxed">Enterprise-grade memory at 70% lower cost than bloated infrastructure solutions.</p>
           </div>
@@ -141,15 +143,128 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-20 md:py-24">
+  <!-- Research Section -->
+  <section class="bg-white py-20 sm:py-24 md:py-32">
     <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-6">
-          Intelligence without memory is just randomness.
+      <div class="max-w-6xl mx-auto">
+        <!-- Blog Badge -->
+        <!-- <div class="text-center mb-6">
+          <span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-lg border border-gray-200">
+            Blog
+          </span>
+        </div> -->
+
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-12 text-center leading-tight tracking-tight">
+          Latest from the MemVerse Blog
         </h2>
-        <p class="text-base text-gray-500 mb-10">
-          Start building with MemVerse today.
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- Blog Card 1: MemVerse -->
+          <article 
+            class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-300 cursor-pointer group"
+            @click="viewBlogDetail(0)"
+          >
+            <!-- Content -->
+            <div class="p-4 sm:p-5">
+              <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                <span>2025</span>
+                <span>•</span>
+                <span>15 min read</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors leading-tight">
+                How Memverse Enhances Your AI Agents
+              </h3>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2">
+                A model-agnostic, plug-and-play memory framework that equips AI agents with lifelong multimodal learning capabilities.
+              </p>
+
+              <!-- Footer -->
+              <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                <span class="text-xs font-medium text-gray-600 group-hover:text-blue-600 transition-colors">
+                  Read Article
+                </span>
+                <el-icon class="text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all text-sm">
+                  <i-ep-arrow-right />
+                </el-icon>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 2: MGA -->
+          <article 
+            class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg hover:border-purple-300 transition-all duration-300 cursor-pointer group"
+            @click="viewBlogDetail(1)"
+          >
+            <!-- Content -->
+            <div class="p-4 sm:p-5">
+              <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                <span>2025</span>
+                <span>•</span>
+                <span>12 min read</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors leading-tight">
+                Application: How Memverse Enhances GUI Agent
+              </h3>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2">
+                A memory-driven GUI agent framework that enables observation-centric interaction with graphical user interfaces.
+              </p>
+
+              <!-- Footer -->
+              <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                <span class="text-xs font-medium text-gray-600 group-hover:text-purple-600 transition-colors">
+                  Read Article
+                </span>
+                <el-icon class="text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all text-sm">
+                  <i-ep-arrow-right />
+                </el-icon>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 3: Placeholder for future -->
+          <article 
+            class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg hover:border-gray-300 transition-all duration-300 cursor-pointer group sm:col-span-2 md:col-span-1"
+            @click="goToResearch"
+          >
+            <!-- Content -->
+            <div class="p-4 sm:p-5">
+              <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                <span>2024</span>
+                <span>•</span>
+                <span>Coming Soon</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors leading-tight">
+                More Research Coming Soon
+              </h3>
+              <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2">
+                Explore all our research papers and technical insights.
+              </p>
+              
+              <!-- Footer -->
+              <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                <span class="text-xs font-medium text-gray-600 group-hover:text-blue-600 transition-colors">
+                  View All
+                </span>
+                <el-icon class="text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all text-sm">
+                  <i-ep-arrow-right />
+                </el-icon>
+              </div>
+            </div>
+          </article>
+        </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gradient-to-b from-white to-gray-50 py-20 sm:py-24 md:py-32">
+    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-6 leading-tight tracking-tight">
+          Intelligence begins with memory.
+        </h2>
+        <p class="text-base sm:text-lg text-gray-500 mb-10 leading-relaxed">
+          Build the future with MemVerse today.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a 
@@ -172,14 +287,14 @@
   </section>
 
   <!-- FAQ Section -->
-  <section class="bg-white py-16 sm:py-20 md:py-24">
+  <section class="bg-white py-20 sm:py-24 md:py-32">
     <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-5 leading-tight tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p class="text-base text-gray-500">
+          <p class="text-base sm:text-lg text-gray-500 leading-relaxed">
             Everything you need to know about MemVerse
           </p>
         </div>
@@ -194,7 +309,7 @@
               @click="toggleFaq(index)"
               class="w-full px-4 py-6 text-left flex items-center justify-between focus:outline-none rounded-lg"
             >
-              <h3 class="text-sm font-medium text-gray-900 pr-8">
+              <h3 class="text-sm sm:text-base font-medium text-gray-900 pr-8 leading-relaxed">
                 {{ faq.question }}
               </h3>
               <el-icon 
@@ -208,21 +323,21 @@
               v-show="faq.open"
               class="px-4 pb-6 text-gray-600 leading-relaxed"
             >
-              <p class="text-sm">
+              <p class="text-sm sm:text-base leading-relaxed">
                 {{ faq.answer }}
               </p>
             </div>
           </div>
-        </div>
+    </div>
     </div>
     </div>
   </section>
 
   <!-- Newsletter Section -->
-  <section class="bg-gray-50 py-16 sm:py-20">
+  <section class="bg-gray-50 py-20 sm:py-24 md:py-32">
     <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
       <div class="max-w-2xl mx-auto text-center">
-        <h3 class="text-xl font-semibold text-gray-900 mb-6">Stay Updated</h3>
+        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-6 leading-tight tracking-tight">Stay Updated</h3>
         <el-form :model="form" class="grid sm:grid-cols-[1fr_auto] gap-3">
           <el-input 
             v-model="form.email" 
@@ -327,6 +442,16 @@ function goToResearch() {
 
 function goToUseCases() {
   router.push('/use-cases')
+}
+
+function viewBlogDetail(index: number) {
+  // Navigate to detail page for both cards
+  router.push(`/research/${index}`)
+}
+
+function handleImageError(event: Event) {
+  const img = event.target as HTMLImageElement
+  img.style.display = 'none'
 }
 
 async function subscribe() {
