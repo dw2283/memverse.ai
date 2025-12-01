@@ -127,16 +127,16 @@
             <p class="text-sm text-gray-600 leading-relaxed">MemVerse retrieves memories in milliseconds — up to 10× faster than other memory systems.</p>
           </div>
 
-          <div class="group text-center p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-white border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-100/50 transition-all duration-300 hover:-translate-y-1">
-            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">89%</div>
-            <h3 class="text-base font-semibold text-gray-900 mb-3">Token Savings</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">Reduce token costs by 89% while maintaining accuracy with efficient memory compression.</p>
+          <div class="group text-center p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">4</div>
+            <h3 class="text-base font-semibold text-gray-900 mb-3">Modalities</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Built-in memory for text, images, audio, and video — with unified processing and cross-modal retrieval.</p>
           </div>
 
-          <div class="group text-center sm:col-span-2 md:col-span-1 p-8 rounded-2xl bg-gradient-to-br from-green-50 to-white border-2 border-green-100 hover:border-green-300 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-300 hover:-translate-y-1">
-            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">70%</div>
-            <h3 class="text-base font-semibold text-gray-900 mb-3">Lower Cost</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">Enterprise-grade memory at 70% lower cost than bloated infrastructure solutions.</p>
+          <div class="group text-center sm:col-span-2 md:col-span-1 p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-white border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl hover:shadow-purple-100/50 transition-all duration-300 hover:-translate-y-1">
+            <div class="text-5xl sm:text-6xl font-light bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">90%</div>
+            <h3 class="text-base font-semibold text-gray-900 mb-3">Token Savings</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Reduce token costs by 90% while maintaining accuracy with efficient memory compression.</p>
           </div>
         </div>
       </div>
@@ -399,12 +399,12 @@ const faqs = ref([
   },
   {
     question: 'How fast is MemVerse compared to traditional RAG?',
-    answer: 'MemVerse retrieves memories in milliseconds—up to 10× faster than traditional RAG systems. It achieves 89% faster query times while maintaining comparable accuracy.',
+    answer: 'MemVerse retrieves memories in milliseconds—up to 10× faster than traditional RAG systems. It achieves faster query times while maintaining comparable accuracy.',
     open: false
   },
   {
     question: 'What are the cost benefits of using MemVerse?',
-    answer: 'MemVerse reduces token costs by 89% through efficient memory compression, achieves 91% lower latency, and provides enterprise-grade memory at 70% lower cost than traditional infrastructure solutions.',
+    answer: 'MemVerse reduces token costs by 90% through efficient memory compression and provides enterprise-grade memory at lower cost than traditional infrastructure solutions.',
     open: false
   },
   {
