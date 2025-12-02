@@ -47,6 +47,18 @@
             >
               View on arXiv
             </a>
+            <a 
+              v-if="currentBlog.github"
+              :href="currentBlog.github" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 px-2 py-1 bg-gray-900 text-white rounded text-xs hover:bg-gray-800 transition-colors"
+            >
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+              </svg>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -274,6 +286,21 @@
 
           <!-- MGA Content -->
           <template v-else-if="blogId === 1">
+            <!-- Video Demo Section -->
+            <section v-if="currentBlog.videoUrl" class="mb-8">
+              <div class="relative w-full bg-gradient-to-br from-gray-100 to-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="aspect-video w-full">
+                  <iframe
+                    :src="currentBlog.videoUrl"
+                    class="w-full h-full"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </section>
+
             <!-- Project Overview -->
             <section class="mb-8">
               <h2 class="text-xl font-bold text-gray-900 mb-6">Project Overview</h2>
@@ -391,22 +418,6 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Memory System -->
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-3">Memory-Driven Learning</h3>
-                  <div class="space-y-3 text-sm text-gray-700">
-                    <p>
-                      MGA's memory system enables continuous learning and adaptation:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
-                      <li><strong>UI Pattern Memory:</strong> Stores learned patterns of common interface elements and layouts</li>
-                      <li><strong>Interaction Sequences:</strong> Remembers successful action sequences for recurring tasks</li>
-                      <li><strong>Cross-Session Context:</strong> Maintains knowledge across multiple interaction sessions</li>
-                      <li><strong>Adaptive Updates:</strong> Dynamically updates memory based on new observations and experiences</li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </section>
 
@@ -417,72 +428,20 @@
                 MGA demonstrates superior performance across multiple benchmarks and real-world applications.
               </p>
 
-              <!-- Benchmark Results Table -->
-              <div class="border overflow-hidden mb-6">
-                <div class="overflow-x-auto">
-                  <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                      <tr>
-                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Benchmark</th>
-                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Key Metric</th>
-                        <th class="px-4 py-2 text-left font-semibold text-gray-900">MGA Performance</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                      <tr>
-                        <td class="px-4 py-2 font-medium text-gray-900">OSworld</td>
-                        <td class="px-4 py-2 text-gray-700">Task Success Rate</td>
-                        <td class="px-4 py-2 font-semibold text-green-600">Significantly Improved</td>
-                      </tr>
-                      <tr class="bg-gray-50">
-                        <td class="px-4 py-2 font-medium text-gray-900">Real Desktop Apps</td>
-                        <td class="px-4 py-2 text-gray-700">Robustness</td>
-                        <td class="px-4 py-2 font-semibold text-green-600">Superior to Baselines</td>
-                      </tr>
-                      <tr>
-                        <td class="px-4 py-2 font-medium text-gray-900">Cross-Task Transfer</td>
-                        <td class="px-4 py-2 text-gray-700">Generalization</td>
-                        <td class="px-4 py-2 font-semibold text-blue-600">Strong Performance</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              
+
+              <!-- Results Image -->
+              <div v-if="currentBlog.resultsImage" class="mb-6 rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  :src="currentBlog.resultsImage" 
+                  alt="MGA Key Results"
+                  class="w-full h-auto"
+                  @error="handleImageError"
+                />
               </div>
             </section>
 
-            <!-- Core Contributions -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Contributions</h2>
-              <div class="space-y-4">
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Observation-Centric Paradigm</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Introduces a novel "observe first, decide later" interaction paradigm that treats each step as independent, reducing error propagation.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Triple-State Representation</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Proposes a comprehensive state representation combining screenshots, spatial information, and structured memory.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Memory-Driven Learning</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Enables continuous learning from past interactions, improving performance across sessions and tasks.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Superior Performance</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Demonstrates significant improvements in robustness, generalization, and efficiency across multiple benchmarks and real applications.
-                  </p>
-                </div>
-              </div>
-            </section>
+            
 
             <!-- Paper Link -->
             <section class="mb-8">
@@ -717,6 +676,9 @@ interface Blog {
   tags: string[]
   image?: string
   arxiv?: string
+  videoUrl?: string
+  resultsImage?: string
+  github?: string
 }
 
 const blogs = [
@@ -728,7 +690,10 @@ const blogs = [
     category: 'Research Paper',
     tags: ['Memory Systems', 'Multimodal AI', 'Lifelong Learning'],
     image: 'https://dw2283.github.io/memweb/research/architecture.png',
-    arxiv: 'https://arxiv.org/abs/XXXX.XXXXX'
+    arxiv: 'https://arxiv.org/pdf/2510.24168',
+    github: 'https://github.com/MintyCo0kie/MGA4OSWorld',
+    videoUrl: undefined,
+    resultsImage: undefined
   },
   {
     title: 'Application: How Memverse Enhances GUI Agent',
@@ -738,7 +703,9 @@ const blogs = [
     category: 'Research Paper',
     tags: ['GUI Agent', 'Memory Systems', 'Automation'],
     image: undefined,
-    arxiv: 'https://arxiv.org/pdf/2510.24168'
+    arxiv: 'https://arxiv.org/pdf/2510.24168',
+    github: 'https://github.com/MintyCo0kie/MGA4OSWorld',
+    resultsImage: '/mga-res.PNG'
   }
 ]
 

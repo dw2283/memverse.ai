@@ -24,7 +24,7 @@
 
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a 
-            href="https://github.com/dw2283/memweb" 
+            href="https://github.com/Wings-Of-Disaster/MemVerse" 
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 hover:shadow-lg hover:scale-105 transition-all duration-200 text-sm font-medium min-w-[180px]"
@@ -268,7 +268,7 @@
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a 
-            href="https://github.com/dw2283/memweb" 
+            href="https://github.com/Wings-Of-Disaster/MemVerse" 
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 hover:shadow-lg hover:scale-105 transition-all duration-200 text-sm font-medium min-w-[180px]"
