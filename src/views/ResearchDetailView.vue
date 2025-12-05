@@ -66,584 +66,706 @@
 
     <!-- Blog Content -->
     <article class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12 bg-white">
-      <div class="max-w-3xl mx-auto">
-        <!-- Featured Image -->
-        <div v-if="currentBlog.image" class="mb-8 rounded-xl overflow-hidden shadow-lg">
-          <img 
-            :src="currentBlog.image" 
-            :alt="currentBlog.title"
-            class="w-full h-auto"
-            @error="handleImageError"
-          />
-        </div>
+      <div class="max-w-4xl mx-auto">
+        <!-- MemVerse Content -->
+        <template v-if="blogId === 0">
+          <!-- Overview Image -->
+          <div class="mb-10 rounded-xl overflow-hidden shadow-lg">
+            <img 
+              src="https://p3-flow-imagex-sign.byteimg.com/ocean-cloud-tos/pdf/1be3d956a64a0d2a3297e44f03c007f8_0_1200.jpg~tplv-a9rns2rl98-resize-crop:84:346:842:704:758:358.jpeg?rk3s=1567c5c4&x-expires=1796349419&x-signature=j5oLY%2Fg8%2BAOU6Ifoi2ldzFtdcMQ%3D"
+              alt="MemVerse Overview"
+              class="w-full h-auto"
+              @error="handleImageError"
+            />
+          </div>
 
-        <!-- Blog Content Sections -->
-        <div class="space-y-12">
-          <!-- MemVerse Content -->
-          <template v-if="blogId === 0">
-            <!-- Project Overview -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-6">Project Overview</h2>
-              <div class="space-y-4 text-gray-700 leading-relaxed text-sm text-sm sm:text-base">
-                <p>
-                  MemVerse is a <strong>model-agnostic, plug-and-play memory framework</strong> designed to equip AI agents with lifelong multimodal learning capabilities. 
-                  By bridging fast parametric recall and hierarchical retrieval-based memory, it solves core limitations of current AI systems—catastrophic forgetting, 
-                  poor long-horizon reasoning, and disconnected multimodal understanding.
-                </p>
-                <p>
-                  Unlike stateless models or rigid memory solutions, MemVerse enables agents to accumulate, organize, and adaptively use knowledge from text, images, 
-                  audio, and video, supporting coherent interaction in real-world environments.
-                </p>
-              </div>
-            </section>
-
-            <!-- Core Challenges -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Challenges Addressed</h2>
-              <p class="text-sm text-gray-600 mb-6">
-                Current AI systems face fundamental limitations that MemVerse addresses through its unified memory architecture.
+          <!-- Introduction -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Introduction: The Memory Gap in Modern AI</h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+              <p>
+                Despite the remarkable capabilities of today's large language models (LLMs) and vision-language models (VLMs), AI agents still face a fundamental limitation: <strong class="text-gray-900">they cannot truly remember</strong>. Unlike humans who accumulate and refine knowledge from multimodal experiences over time, current AI systems operate in a largely stateless manner—treating each task as an isolated event rather than part of a continuous learning journey.
               </p>
-
-              <div class="grid md:grid-cols-2 gap-4 mb-6">
-                <div class="border-l-2 border-red-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Catastrophic Forgetting</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    AI models lose previously learned knowledge when trained on new data, preventing continuous learning and knowledge accumulation.
-                  </p>
-                </div>
-
-                <div class="border-l-2 border-orange-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Poor Long-Horizon Reasoning</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Limited context windows and lack of persistent memory prevent agents from maintaining coherence across extended interactions and complex tasks.
-                  </p>
-                </div>
-
-                <div class="border-l-2 border-yellow-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Disconnected Multimodal Understanding</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Existing systems struggle to maintain consistent understanding across text, images, audio, and video modalities.
-                  </p>
-                </div>
-
-                <div class="border-l-2 border-blue-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Inefficient Memory Retrieval</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Traditional retrieval systems suffer from high latency and token costs, limiting real-time application performance.
-                  </p>
-                </div>
-              </div>
-
-              <p class="text-sm text-gray-700 italic border-l-2 border-purple-500 pl-4 py-2">
-                MemVerse addresses these challenges through its unified memory architecture combining parametric and retrieval-based memory, 
-                enabling efficient, scalable, and multimodal knowledge management for AI agents.
+              <p>
+                This memory deficit becomes particularly problematic in:
               </p>
-            </section>
-
-            <!-- Technical Architecture -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Technical Architecture</h2>
-              <p class="text-sm text-gray-600 mb-6">
-                MemVerse integrates three core memory components to enable lifelong multimodal learning.
+              <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base">
+                <li>Visual reasoning and scene understanding</li>
+                <li>Long-horizon conversational interactions</li>
+                <li>Robotic manipulation and real-world navigation</li>
+                <li>Multimodal tasks combining text, images, audio, and video</li>
+              </ul>
+              <p>
+                Existing memory solutions fall short:
               </p>
-
-              <div class="space-y-6">
-                <!-- Hierarchical Retrieval-Based Memory -->
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-3">Hierarchical Retrieval-Based Memory</h3>
-                  <div class="space-y-3 text-sm text-gray-700">
-                    <p>
-                      MemVerse employs a <strong>two-tier retrieval system</strong> for efficient memory access:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2 text-sm">
-                      <li><strong>Short-term Memory:</strong> Fast-access cache for recent interactions and frequently accessed information</li>
-                      <li><strong>Long-term Memory:</strong> Persistent storage with hierarchical indexing for efficient retrieval across large knowledge bases</li>
-                      <li>Adaptive retrieval strategies that balance speed and relevance</li>
-                      <li>Multimodal encoding that maintains semantic relationships across modalities</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Parametric Memory -->
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-3">Parametric Memory</h3>
-                  <p class="text-sm text-gray-700 mb-4">
-                    A lightweight neural model that learns compressed representations of frequently accessed knowledge:
-                  </p>
-                  <div class="grid md:grid-cols-2 gap-3">
-                    <div class="border-l-2 border-blue-500 pl-3">
-                      <h4 class="text-sm font-semibold text-gray-900 mb-1">Knowledge Compression</h4>
-                      <p class="text-xs text-gray-700">
-                        Efficiently encodes patterns and relationships into compact parametric representations.
-                      </p>
-                    </div>
-                    <div class="border-l-2 border-blue-500 pl-3">
-                      <h4 class="text-sm font-semibold text-gray-900 mb-1">Fast Recall</h4>
-                      <p class="text-xs text-gray-700">
-                        Enables instant access to learned patterns without external retrieval overhead.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Memory Orchestrator -->
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-3">Memory Orchestrator</h3>
-                  <div class="space-y-3 text-sm text-gray-700">
-                    <p>
-                      The orchestrator manages storage, retrieval, and integration across all memory types:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
-                      <li><strong>Unified Storage:</strong> Seamlessly stores and indexes information across all modalities</li>
-                      <li><strong>Intelligent Retrieval:</strong> Selects optimal memory source based on query characteristics and context</li>
-                      <li><strong>Cross-Modal Integration:</strong> Maintains semantic consistency across text, images, audio, and video</li>
-                      <li><strong>Adaptive Updates:</strong> Dynamically updates memory based on usage patterns and new information</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Key Results -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Key Results</h2>
-              <p class="text-sm text-gray-600 mb-6">
-                MemVerse demonstrates significant improvements in performance, efficiency, and scalability.
+              <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base">
+                <li><strong class="text-gray-900">Parametric memory</strong> (encoded in model weights) suffers from catastrophic forgetting and rigid capacity limits</li>
+                <li><strong class="text-gray-900">Retrieval-based memory</strong> (external databases) lacks structure, leading to inefficiency and noisy results at scale</li>
+              </ul>
+              <p>
+                MemVerse addresses these flaws with a unified, model-agnostic framework that bridges fast parametric recall with structured, hierarchical long-term memory—enabling AI agents to learn continuously across multimodal experiences.
               </p>
-
-              <!-- Performance Metrics -->
-              <div class="border overflow-hidden mb-6">
-                <div class="overflow-x-auto">
-                  <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                      <tr>
-                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Metric</th>
-                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Improvement</th>
-                        <th class="px-4 py-2 text-left font-semibold text-gray-900">Impact</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                      <tr>
-                        <td class="px-4 py-2 font-medium text-gray-900">Recall Speed</td>
-                        <td class="px-4 py-2 text-gray-700">10× faster</td>
-                        <td class="px-4 py-2 font-semibold text-green-600">Millisecond-level retrieval</td>
-                      </tr>
-                      <tr class="bg-gray-50">
-                        <td class="px-4 py-2 font-medium text-gray-900">Token Savings</td>
-                        <td class="px-4 py-2 text-gray-700">89% reduction</td>
-                        <td class="px-4 py-2 font-semibold text-green-600">Significant cost reduction</td>
-                      </tr>
-                      <tr>
-                        <td class="px-4 py-2 font-medium text-gray-900">Latency</td>
-                        <td class="px-4 py-2 text-gray-700">91% lower</td>
-                        <td class="px-4 py-2 font-semibold text-blue-600">Real-time performance</td>
-                      </tr>
-                      <tr class="bg-gray-50">
-                        <td class="px-4 py-2 font-medium text-gray-900">Cost Efficiency</td>
-                        <td class="px-4 py-2 text-gray-700">70% lower</td>
-                        <td class="px-4 py-2 font-semibold text-blue-600">Enterprise-grade scalability</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </section>
-
-            <!-- Core Contributions -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Contributions</h2>
-              <div class="space-y-4">
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Unified Memory Architecture</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Introduces a novel framework that seamlessly integrates parametric and retrieval-based memory, enabling efficient knowledge management across modalities.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Model-Agnostic Design</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Provides a plug-and-play solution that works with any LLM or VLM without requiring model retraining or modification.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Multimodal Memory Support</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Enables consistent understanding and retrieval across text, images, audio, and video, maintaining semantic relationships across modalities.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Efficient Retrieval System</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Achieves 10× faster recall and 89% token savings compared to other memory systems, enabling real-time applications at scale.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </template>
-
-          <!-- MGA Content -->
-          <template v-else-if="blogId === 1">
-            <!-- Video Demo Section -->
-            <section v-if="currentBlog.videoUrl" class="mb-8">
-              <div class="relative w-full bg-gradient-to-br from-gray-100 to-gray-50 rounded-xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="aspect-video w-full">
-                  <iframe
-                    :src="currentBlog.videoUrl"
-                    class="w-full h-full"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </section>
-
-            <!-- Project Overview -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-6">Project Overview</h2>
-              <div class="space-y-4 text-gray-700 leading-relaxed text-sm text-sm sm:text-base">
-                <p>
-                  MGA (Memory-Driven GUI Agent) introduces a novel <strong>observation-centric interaction paradigm</strong> for graphical user interface automation. 
-                  Unlike traditional GUI agents that rely on sequential action histories, MGA treats each step as an independent, context-rich environment state, 
-                  significantly reducing error propagation and improving robustness.
-                </p>
-                <p>
-                  The framework leverages a <strong>triple-state representation</strong> combining current screenshots, task-agnostic spatial information, 
-                  and dynamically updated structured memory. This approach enables MGA to achieve superior performance in complex desktop and web environments 
-                  while maintaining strong generalization capabilities across different applications and tasks.
-                </p>
-                <p>
-                  MGA demonstrates significant improvements over state-of-the-art baselines in robustness, generalization, and efficiency across OSworld benchmarks, 
-                  real desktop applications (Chrome, VSCode, VLC), and cross-task transfer scenarios.
-                </p>
-              </div>
-            </section>
-
-            <!-- Core Challenges -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Core Challenges Addressed</h2>
-              <p class="text-sm text-gray-600 mb-6">
-                Traditional GUI agents face several critical limitations that MGA overcomes.
-              </p>
-
-              <div class="grid md:grid-cols-2 gap-4 mb-6">
-                <div class="border-l-2 border-red-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Error Propagation</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Sequential action histories cause errors to accumulate and propagate through the interaction chain, leading to task failure.
-                  </p>
-                </div>
-
-                <div class="border-l-2 border-orange-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Limited Observation Utilization</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Existing agents fail to effectively leverage rich interface cues, resulting in local exploration bias and inefficient navigation.
-                  </p>
-                </div>
-
-                <div class="border-l-2 border-yellow-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Poor Generalization</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Agents struggle to adapt to different application layouts, UI changes, and cross-task scenarios without extensive retraining.
-                  </p>
-                </div>
-
-                <div class="border-l-2 border-blue-500 pl-4">
-                  <h3 class="text-base font-semibold text-gray-900 mb-2">Context Loss</h3>
-                  <p class="text-sm text-gray-700 leading-relaxed">
-                    Lack of persistent memory prevents agents from learning from past interactions and maintaining context across sessions.
-                  </p>
-                </div>
-              </div>
-
-              <p class="text-sm text-gray-700 italic border-l-2 border-purple-500 pl-4 py-2">
-                MGA addresses these challenges through its observation-first paradigm and triple-state memory representation, 
-                treating each step as an independent decision point with rich contextual information.
-              </p>
-            </section>
-
-            <!-- Technical Architecture -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Technical Architecture</h2>
-              <p class="text-sm text-gray-600 mb-6">
-                MGA's design centers on observation-centric interaction with a triple-state representation.
-              </p>
-
-              <div class="space-y-6">
-                <!-- Observation-Centric Paradigm -->
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-3">Observation-First Interaction</h3>
-                  <div class="space-y-3 text-sm text-gray-700">
-                    <p>
-                      MGA adopts a <strong>"observe first, decide later"</strong> approach where each step is treated as an independent, 
-                      context-rich environment state. This paradigm eliminates dependency on historical action trajectories, 
-                      preventing error propagation and enabling more robust decision-making.
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2 text-sm">
-                      <li>Each interaction step is self-contained with full environmental context</li>
-                      <li>No reliance on sequential action histories</li>
-                      <li>Reduced error accumulation and propagation</li>
-                      <li>Better utilization of interface cues and visual information</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Triple-State Representation -->
-                <div>
-                  <h3 class="text-base font-semibold text-gray-900 mb-3">Triple-State Representation</h3>
-                  <p class="text-sm text-gray-700 mb-4">
-                    Each state in MGA consists of three complementary components:
-                  </p>
-                  <div class="grid md:grid-cols-3 gap-3">
-                    <div class="border-l-2 border-blue-500 pl-3">
-                      <h4 class="text-sm font-semibold text-gray-900 mb-1">1. Current Screenshot</h4>
-                      <p class="text-xs text-gray-700">
-                        Visual representation of the current GUI state, capturing all visible elements and their spatial relationships.
-                      </p>
-                    </div>
-                    <div class="border-l-2 border-blue-500 pl-3">
-                      <h4 class="text-sm font-semibold text-gray-900 mb-1">2. Spatial Information</h4>
-                      <p class="text-xs text-gray-700">
-                        Task-agnostic spatial cues including element positions, sizes, and hierarchical structures.
-                      </p>
-                    </div>
-                    <div class="border-l-2 border-blue-500 pl-3">
-                      <h4 class="text-sm font-semibold text-gray-900 mb-1">3. Structured Memory</h4>
-                      <p class="text-xs text-gray-700">
-                        Dynamically updated memory containing learned UI patterns, interaction sequences, and task-specific knowledge.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Key Results -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Key Results</h2>
-              <p class="text-sm text-gray-600 mb-6">
-                MGA demonstrates superior performance across multiple benchmarks and real-world applications.
-              </p>
-
-              
-
-              <!-- Results Image -->
-              <div v-if="currentBlog.resultsImage" class="mb-6 rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  :src="currentBlog.resultsImage" 
-                  alt="MGA Key Results"
-                  class="w-full h-auto"
-                  @error="handleImageError"
-                />
-              </div>
-            </section>
-
-            
-
-            <!-- Paper Link -->
-            <section class="mb-8">
-              <h2 class="text-xl font-bold text-gray-900 mb-4">Paper & Resources</h2>
-              <div class="space-y-3">
-                <a 
-                  href="https://arxiv.org/pdf/2510.24168" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 px-2 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition-colors"
-                >
-                  View Paper on arXiv
-                </a>
-                <p class="text-xs text-gray-600">
-                  The code for MGA is publicly available. For implementation details and to use MGA in your projects, 
-                  please refer to the paper and associated repository.
-                </p>
-              </div>
-            </section>
-          </template>
-
-          <!-- MemVerse Specific Content -->
-          <template v-if="blogId === 0">
-            <!-- Core Challenges -->
-            <section class="mb-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">Core Challenges Addressed</h2>
-            <p class="text-sm text-gray-600 mb-6">
-              Current AI memory systems face three critical bottlenecks that MemVerse overcomes.
-            </p>
-
-            <div class="space-y-4 mb-6">
-              <div class="border-l-2 border-red-500 pl-4">
-                <h3 class="text-base font-semibold text-gray-900 mb-2">Parameter Dependency</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  Memory tied to model weights limits scalability and causes catastrophic forgetting.
-                </p>
-              </div>
-
-              <div class="border-l-2 border-orange-500 pl-4">
-                <h3 class="text-base font-semibold text-gray-900 mb-2">Unstructured Storage</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  Raw data logs in RAG-style systems lead to inefficient retrieval and redundancy.
-                </p>
-              </div>
-
-              <div class="border-l-2 border-yellow-500 pl-4">
-                <h3 class="text-base font-semibold text-gray-900 mb-2">Modality Silos</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  Text-centric memory fails to align visual, auditory, and linguistic information.
-                </p>
-              </div>
             </div>
-
-            <p class="text-sm text-gray-700 italic border-l-2 border-blue-500 pl-4 py-2">
-              MemVerse overcomes these by unifying complementary memory mechanisms, mirroring the "fast and slow thinking" of human cognition.
-            </p>
           </section>
 
-          <!-- Technical Architecture -->
-          <section class="mb-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">Technical Architecture</h2>
-            <p class="text-sm text-gray-600 mb-6">
-              MemVerse's design integrates three core memory components, coordinated by a central orchestrator.
-            </p>
-
+          <!-- Core Design -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Core Design: How MGA Works</h2>
+            
             <!-- Architecture Image -->
-            <div class="mb-6">
+            <div class="mb-8 rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="https://dw2283.github.io/memweb/research/architecture.png" 
-                alt="MemVerse Architecture" 
+                src="https://p9-flow-imagex-sign.byteimg.com/ocean-cloud-tos/pdf/1be3d956a64a0d2a3297e44f03c007f8_3_1200.jpg~tplv-a9rns2rl98-resize-crop:83:124:841:439:758:315.jpeg?rk3s=1567c5c4&x-expires=1796349418&x-signature=sf1eXj3tmQK%2FBTW1eEQ2KqO%2Bvj8%3D"
+                alt="MemVerse Architecture"
                 class="w-full h-auto"
                 @error="handleImageError"
               />
-              <p class="text-xs text-gray-500 mt-2 text-center">
-                Figure 2: MemVerse's unified memory framework (from paper)
-              </p>
             </div>
 
-            <div class="space-y-6">
-              <!-- Hierarchical Retrieval-Based Memory -->
-              <div>
-                <h3 class="text-base font-semibold text-gray-900 mb-3">Hierarchical Retrieval-Based Memory</h3>
-                <div class="space-y-3 text-sm text-gray-700">
-                  <div>
-                    <strong class="text-gray-900">Short-Term Memory (STM):</strong>
-                    <p class="mt-1">Caches recent conversational context (sliding window) to avoid redundant long-term storage updates.</p>
-                  </div>
-                  <div>
-                    <strong class="text-gray-900">Long-Term Memory (LTM):</strong>
-                    <p class="mt-1">Structures multimodal experiences into three specialized knowledge graphs:</p>
-                    <ul class="list-disc pl-5 mt-2 space-y-1">
-                      <li><strong>Core Memory:</strong> User-specific facts and preferences</li>
-                      <li><strong>Episodic Memory:</strong> Time-ordered event logs</li>
-                      <li><strong>Semantic Memory:</strong> Generalizable concepts and entity relationships</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <strong class="text-gray-900">Multimodal Processing:</strong>
-                    <p class="mt-1">Converts images, audio, and video into aligned textual representations, linking symbolic knowledge back to original sensory data.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Parametric Memory -->
-              <div>
-                <h3 class="text-base font-semibold text-gray-900 mb-3">Parametric Memory</h3>
-                <p class="text-sm text-gray-700 mb-3">
-                  A lightweight neural model (7B-scale transformer) that:
-                </p>
-                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
-                  <li>Periodically distills essential knowledge from LTM via supervised fine-tuning</li>
-                  <li>Enables fast, differentiable recall (89% faster than RAG) while preserving accuracy</li>
-                  <li>Dynamically expands with new knowledge without full model retraining</li>
-                </ul>
-              </div>
-
-              <!-- Memory Orchestrator -->
-              <div>
-                <h3 class="text-base font-semibold text-gray-900 mb-3">Memory Orchestrator</h3>
-                <p class="text-sm text-gray-700">
-                  A rule-based controller that manages storage, retrieval, and integration across STM, LTM, and parametric memory—no additional trainable parameters required.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Key Results -->
-          <section class="mb-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">Key Results</h2>
-            <p class="text-sm text-gray-600 mb-6">
-              MemVerse outperforms state-of-the-art models across diverse multimodal benchmarks.
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-8">
+              MemVerse's dual-path architecture draws inspiration from human cognition—combining "fast thinking" (parametric memory) and "slow thinking" (retrieval-based memory) into a cohesive system managed by a central memory orchestrator.
             </p>
 
-            <!-- Benchmark Results Table -->
-            <div class="border overflow-hidden mb-6">
-              <div class="overflow-x-auto">
-                <table class="w-full text-sm">
+            <!-- Hierarchical Retrieval-Based Memory -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">1. Hierarchical Retrieval-Based Memory</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                This component handles long-term knowledge storage with three specialized memory types, all organized as multimodal knowledge graphs (MMKGs):
+              </p>
+              
+              <!-- Memory Types Table -->
+              <div class="overflow-x-auto mb-6">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
                   <thead class="bg-gray-50">
                     <tr>
-                      <th class="px-4 py-2 text-left font-semibold text-gray-900">Benchmark</th>
-                      <th class="px-4 py-2 text-left font-semibold text-gray-900">Key Metric</th>
-                      <th class="px-4 py-2 text-left font-semibold text-gray-900">MemVerse Performance</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Memory Type</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Purpose</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Key Features</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200">
                     <tr>
-                      <td class="px-4 py-2 font-medium text-gray-900">ScienceQA</td>
-                      <td class="px-4 py-2 text-gray-700">Average Accuracy</td>
-                      <td class="px-4 py-2 font-semibold text-green-600">85.48% (SOTA)</td>
+                      <td class="px-4 py-3 font-medium text-gray-900"><strong>Core Memory</strong></td>
+                      <td class="px-4 py-3 text-gray-700">User-specific facts & preferences</td>
+                      <td class="px-4 py-3 text-gray-700">Persistent, personalized knowledge</td>
                     </tr>
                     <tr class="bg-gray-50">
-                      <td class="px-4 py-2 font-medium text-gray-900">LoCoMo</td>
-                      <td class="px-4 py-2 text-gray-700">Overall F1</td>
-                      <td class="px-4 py-2 font-semibold text-green-600">24.7 (Top 1)</td>
+                      <td class="px-4 py-3 font-medium text-gray-900"><strong>Episodic Memory</strong></td>
+                      <td class="px-4 py-3 text-gray-700">Time-ordered experiences</td>
+                      <td class="px-4 py-3 text-gray-700">Detailed event logs with temporal context</td>
                     </tr>
                     <tr>
-                      <td class="px-4 py-2 font-medium text-gray-900">ScienceQA</td>
-                      <td class="px-4 py-2 text-gray-700">Query Time</td>
-                      <td class="px-4 py-2 font-semibold text-blue-600">2.28s (89% faster than RAG)</td>
+                      <td class="px-4 py-3 font-medium text-gray-900"><strong>Semantic Memory</strong></td>
+                      <td class="px-4 py-3 text-gray-700">Generalizable concepts</td>
+                      <td class="px-4 py-3 text-gray-700">Structured entity-relation knowledge</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="bg-blue-50 border-l-4 border-blue-500 pl-4 py-3 rounded-r-lg mb-6">
+                <h4 class="text-base font-semibold text-gray-900 mb-2">Multimodal Processing Pipeline</h4>
+                <p class="text-sm text-gray-700 mb-2">
+                  Raw multimodal inputs (images, audio, video) are converted to structured representations through:
+                </p>
+                <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-700">
+                  <li>Modality-specific feature extraction</li>
+                  <li>Cross-modal alignment</li>
+                  <li>Textual token generation (enabling symbolic processing)</li>
+                  <li>Entity/relation extraction for MMKG construction</li>
+                </ol>
+                <p class="text-sm text-gray-700 mt-2">
+                  Each node and relation in the knowledge graph maintains links to original multimodal data, ensuring full traceability and grounding.
+                </p>
+              </div>
+            </div>
+
+            <!-- Parametric Memory -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">2. Parametric Memory</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-3">
+                A lightweight neural model that provides fast, differentiable recall by distilling essential knowledge from the long-term memory. Key characteristics:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+                <li>Initialized from pretrained LLM/VLM weights (e.g., Qwen2.5-7B)</li>
+                <li>Updated via periodic supervised fine-tuning on (question, retrieved context) pairs</li>
+                <li>Enables <strong class="text-gray-900">89% faster access</strong> than traditional RAG systems (2.28s vs. 20.17s per query)</li>
+                <li>Maintains comparable accuracy to full retrieval while reducing computational overhead</li>
+              </ul>
+            </div>
+
+            <!-- Short-Term Memory -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">3. Short-Term Memory</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-3">
+                A sliding-window cache for recent conversational context (e.g., last K dialogue turns) that:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+                <li>Reduces redundant long-term memory updates</li>
+                <li>Ensures local consistency during ongoing interactions</li>
+                <li>Triggers consolidation only when sufficient new knowledge accumulates</li>
+              </ul>
+            </div>
+
+            <!-- Memory Orchestrator -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">4. Memory Orchestrator</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-3">
+                The central control unit that:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+                <li>Manages all memory operations (add, update, delete, retrieve)</li>
+                <li>Implements adaptive forgetting to bound memory growth</li>
+                <li>Optimizes retrieval paths (STM → parametric → LTM) based on context</li>
+                <li>Operates with rule-based logic (no additional trainable parameters)</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Key Innovations -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Key Innovations</h2>
+            <div class="space-y-4">
+              <div class="border-l-4 border-blue-500 pl-4 py-2">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">1. Model-Agnostic Plug-and-Play Design</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  Works with any LLM/VLM (GPT-4o-mini, Qwen2.5, etc.) without modifying the base model architecture.
+                </p>
+              </div>
+              <div class="border-l-4 border-purple-500 pl-4 py-2">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">2. Structured Multimodal Knowledge Graphs</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  Transforms unstructured raw data into organized, interpretable knowledge—eliminating redundancy and enabling efficient multi-hop reasoning.
+                </p>
+              </div>
+              <div class="border-l-4 border-green-500 pl-4 py-2">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">3. Periodic Distillation Mechanism</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  Balances fast parametric access with the richness of long-term memory by periodically compressing essential knowledge into the lightweight model.
+                </p>
+              </div>
+              <div class="border-l-4 border-orange-500 pl-4 py-2">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">4. Adaptive Forgetting</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  Prevents unbounded memory growth by pruning irrelevant or outdated information while preserving critical knowledge.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Experimental Results -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Experimental Results</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-6">
+              MemVerse was evaluated across three diverse multimodal benchmarks, demonstrating significant improvements over state-of-the-art models:
+            </p>
+
+            <!-- ScienceQA Table -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">ScienceQA (Multimodal Reasoning)</h3>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Model</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Average Accuracy</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Natural Science</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Social Science</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Language</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">GPT-4o-mini (base)</td>
+                      <td class="px-4 py-3 text-gray-700">76.82%</td>
+                      <td class="px-4 py-3 text-gray-700">77.31%</td>
+                      <td class="px-4 py-3 text-gray-700">73.45%</td>
+                      <td class="px-4 py-3 text-gray-700">86.91%</td>
+                    </tr>
+                    <tr class="bg-blue-50">
+                      <td class="px-4 py-3 font-medium text-gray-900">GPT-4o-mini + MemVerse</td>
+                      <td class="px-4 py-3 font-semibold text-blue-600"><strong>85.48%</strong></td>
+                      <td class="px-4 py-3 font-semibold text-blue-600"><strong>85.26%</strong></td>
+                      <td class="px-4 py-3 font-semibold text-blue-600"><strong>81.55%</strong></td>
+                      <td class="px-4 py-3 font-semibold text-blue-600"><strong>89.09%</strong></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">Qwen2.5-72B (base)</td>
+                      <td class="px-4 py-3 text-gray-700">78.37%</td>
+                      <td class="px-4 py-3 text-gray-700">79.64%</td>
+                      <td class="px-4 py-3 text-gray-700">67.10%</td>
+                      <td class="px-4 py-3 text-gray-700">84.90%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">Qwen2.5-72B + MemVerse</td>
+                      <td class="px-4 py-3 text-gray-700">80.25%</td>
+                      <td class="px-4 py-3 text-gray-700">77.53%</td>
+                      <td class="px-4 py-3 text-gray-700">68.95%</td>
+                      <td class="px-4 py-3 text-gray-700">85.36%</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
 
+            <!-- MSR-VTT Table -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">MSR-VTT (Video-Text Retrieval)</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                MemVerse achieves dramatic improvements over CLIP and other state-of-the-art methods:
+              </p>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Method</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Text-to-Video R@1</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Video-to-Text R@1</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">CLIP (baseline)</td>
+                      <td class="px-4 py-3 text-gray-700">29.7%</td>
+                      <td class="px-4 py-3 text-gray-700">21.4%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">InternVideo</td>
+                      <td class="px-4 py-3 text-gray-700">55.2%</td>
+                      <td class="px-4 py-3 text-gray-700">57.9%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">ExCae</td>
+                      <td class="px-4 py-3 text-gray-700">67.7%</td>
+                      <td class="px-4 py-3 text-gray-700">69.3%</td>
+                    </tr>
+                    <tr class="bg-green-50">
+                      <td class="px-4 py-3 font-medium text-gray-900">MemVerse</td>
+                      <td class="px-4 py-3 font-semibold text-green-600"><strong>90.4%</strong></td>
+                      <td class="px-4 py-3 font-semibold text-green-600"><strong>89.2%</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Performance Insights -->
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 pl-4 py-4 rounded-r-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Key Performance Insights</h3>
+              <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base text-gray-700">
+                <li><strong class="text-gray-900">Speed vs. Accuracy Tradeoff:</strong> Parametric memory maintains retrieval-level accuracy while reducing latency by 72-89%</li>
+                <li><strong class="text-gray-900">Multimodal Advantage:</strong> Significant gains in image-caption and video-text tasks demonstrate effective cross-modal knowledge integration</li>
+                <li><strong class="text-gray-900">Model Compatibility:</strong> GPT-based models show greater benefit from MemVerse due to stronger knowledge integration capabilities</li>
+              </ul>
+            </div>
           </section>
 
-          <!-- Core Contributions -->
-          <section class="mb-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">Core Contributions</h2>
+          <!-- Use Cases -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Use Cases & Applications</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-6">
+              MemVerse unlocks new possibilities for AI agents in:
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">1. Long-Term Conversational Agents</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Maintains personalized knowledge across extended dialogues (600+ turns)</li>
+                  <li>Avoids repetition and context loss in multi-session interactions</li>
+                  <li>Adapts to user preferences over time</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-purple-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">2. Multimodal Content Understanding</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Enhances video-text retrieval and cross-modal matching</li>
+                  <li>Enables reasoning across text, images, audio, and video</li>
+                  <li>Supports complex scene understanding in perception-rich environments</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-green-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">3. Lifelong Learning Systems</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Continuously integrates new knowledge without catastrophic forgetting</li>
+                  <li>Scales memory capacity independently of model size</li>
+                  <li>Adapts to new tasks while preserving existing expertise</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-orange-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">4. Robotics & Autonomous Systems</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Retains experiences from past interactions for improved decision-making</li>
+                  <li>Supports long-horizon planning in dynamic environments</li>
+                  <li>Integrates sensory data (vision, audio, tactile) into structured memory</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Future Directions -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Future Directions</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+              The MemVerse team plans to expand the framework with:
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+              <li>More adaptive memory-control strategies</li>
+              <li>Deployment in open-world environments across diverse domains</li>
+              <li>Advanced multimodal fusion for real-time sensory data</li>
+              <li>Reinforcement learning optimization for memory management</li>
+            </ul>
+          </section>
+
+          <!-- Conclusion -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Conclusion</h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+              <p>
+                MemVerse represents a critical step toward AI agents that can truly learn and adapt over time. By unifying fast parametric recall with structured, hierarchical long-term memory, it addresses the fundamental memory gap in modern AI systems—enabling scalable, multimodal lifelong learning without unbounded memory growth.
+              </p>
+              <p>
+                The framework's model-agnostic design and plug-and-play architecture make it easy to integrate with existing LLMs and VLMs, while its experimental results demonstrate significant improvements in reasoning accuracy, efficiency, and long-horizon coherence.
+              </p>
+              <p class="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 pl-4 py-3 rounded-r-lg font-medium text-gray-900">
+                As AI shifts from single-task inference to continuous real-world interaction, MemVerse proves that <strong>scalable memory, not just larger models, is the missing ingredient for capable, adaptive AI agents</strong>.
+              </p>
+            </div>
+          </section>
+
+          <!-- Footer Note -->
+          <div class="mt-12 pt-8 border-t border-gray-200 text-sm text-gray-500 italic">
+            <p>
+              MemVerse is open-source and available on <a href="https://github.com/KnowledgeXLab/MemVerse" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline">GitHub</a>. For more details, refer to the original paper: <a href="https://arxiv.org/pdf/2512.03627" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline">MemVerse: Multimodal Memory for Lifelong Learning Agents</a>.
+            </p>
+          </div>
+        </template>
+
+        <!-- MGA Content -->
+        <template v-else-if="blogId === 1">
+          <!-- Overview Image -->
+          <div class="mb-10 rounded-xl overflow-hidden shadow-lg">
+            <img 
+              :src="mgaImage1"
+              alt="MGA Framework Overview"
+              class="w-full h-auto"
+              @error="handleImageError"
+            />
+            <p class="text-xs text-gray-500 italic mt-2 text-center">
+              Figure 1: The core architecture of MGA, featuring four interdependent modules that enable the "observe–then–decide" paradigm for GUI interaction.
+            </p>
+          </div>
+
+          <!-- Introduction -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Introduction: The Limitations of Modern GUI Agents</h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+              <p>
+                Graphical User Interface (GUI) agents are transforming how we interact with digital systems—from desktop applications to web platforms—by automating tasks that once required manual mouse clicks, form entries, and navigation. However, current state-of-the-art agents face two critical bottlenecks:
+              </p>
+              <ol class="list-decimal pl-6 space-y-2 text-sm sm:text-base">
+                <li><strong class="text-gray-900">Trajectory Dependence</strong>: Most agents rely on long chains of historical actions to make decisions, leading to error propagation and redundant loops when early steps go off-track.</li>
+                <li><strong class="text-gray-900">Local Exploration Bias</strong>: The "decision-first, observation-later" approach causes agents to overlook critical interface cues, prioritizing task goals over full environmental understanding.</li>
+              </ol>
+              <p>
+                These flaws become particularly problematic in complex scenarios: long-horizon tasks spanning multiple applications, dynamic interfaces with pop-ups or loading states, and cross-platform workflows. Enter <strong class="text-gray-900">MGA (Memory-Driven GUI Agent)</strong>—a framework that flips the script with an "observe first, then decide" philosophy, decoupling decisions from fragile trajectories while grounding interactions in comprehensive interface understanding.
+              </p>
+            </div>
+          </section>
+
+          <!-- Core Design -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Core Design: How MGA Works</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-6">
+              MGA models each GUI interaction step as an independent, context-rich environment state—eliminating the need to replay entire action histories. Its architecture combines four specialized modules, as visualized in Figure 1:
+            </p>
+
+            <!-- Detailed Workflow Image -->
+            <div class="mb-8 rounded-xl overflow-hidden shadow-lg">
+              <img 
+                :src="mgaImage2"
+                alt="MGA Detailed Workflow"
+                class="w-full h-auto"
+                @error="handleImageError"
+              />
+              <p class="text-xs text-gray-500 italic mt-2 text-center">
+                Figure 2: Step-by-step data flow in MGA, showing how observation, memory, planning, and grounding work in tandem for a flight-booking task.
+              </p>
+            </div>
+
+            <!-- Task-Agnostic Spatial–Semantic Observer -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">1. Task-Agnostic Spatial–Semantic Observer</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                The Observer module lays the foundation for MGA's observation-centric approach by extracting <strong class="text-gray-900">task-independent, semantically rich interface information</strong> from screenshots. Unlike task-driven observers that focus only on relevant elements, it captures four critical components:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+                <li><strong class="text-gray-900">Spatial Layout</strong>: Complete mapping of element positions and their relative relationships (no blind spots).</li>
+                <li><strong class="text-gray-900">Semantic Roles</strong>: Functional labels for all elements (e.g., "button," "input field," "calendar widget") to enable flexible task adaptation.</li>
+                <li><strong class="text-gray-900">Interactive Elements Inventory</strong>: Comprehensive list of all actionable components (buttons, menus, hotkeys) to avoid missed options.</li>
+                <li><strong class="text-gray-900">Context & State</strong>: Details like pop-ups, loading bars, or highlighted items that determine action success.</li>
+              </ul>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mt-4">
+                This structured output ensures the agent has a full "blueprint" of the interface before making any decisions.
+              </p>
+            </div>
+
+            <!-- Abstract Memory Agent -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">2. Abstract Memory Agent</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                To retain temporal context without relying on raw action chains, MGA's Memory Agent distills historical interactions into a <strong class="text-gray-900">dynamic, structured memory</strong>. Unlike traditional trajectory logs, this memory captures five high-level dimensions:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+                <li><strong class="text-gray-900">Interface State Evolution</strong>: How windows, files, or UI elements have changed over steps.</li>
+                <li><strong class="text-gray-900">Operation Effect Analysis</strong>: Whether actions produced intended results and their side effects.</li>
+                <li><strong class="text-gray-900">Behavioral Pattern Recognition</strong>: Recurring loops or efficient action sequences.</li>
+                <li><strong class="text-gray-900">Issue Identification</strong>: Flagged errors, redundancies, or state inconsistencies.</li>
+                <li><strong class="text-gray-900">State Consistency Verification</strong>: Ensuring logical flow between past actions and current state.</li>
+              </ul>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mt-4">
+                Crucially, this memory does not dictate the next action—it provides a de-biased, redundancy-free context to inform decision-making.
+              </p>
+            </div>
+
+            <!-- Planning Agent -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">3. Planning Agent</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                The Planner converts user instructions into actionable steps by leveraging the current screenshot, Observer's spatial–semantic data, and Memory Agent's structured summary. It operates in two stages:
+              </p>
+              <ol class="list-decimal pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+                <li><strong class="text-gray-900">High-Level Reasoning</strong>: Infers the logical next step (e.g., "VLC is open—load a video by accessing the Media menu").</li>
+                <li><strong class="text-gray-900">Action Specification</strong>: Outputs concrete natural-language actions (e.g., "Click the Media button in the top menu bar").</li>
+              </ol>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mt-4">
+                By focusing on the current state + distilled memory (not full trajectory replay), the Planner avoids the inertia of erroneous past actions.
+              </p>
+            </div>
+
+            <!-- GUI Grounding Agent -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">4. GUI Grounding Agent</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                The Grounding Agent translates the Planner's natural-language actions into executable code (e.g., mouse clicks, keystrokes) by:
+              </p>
+              <ol class="list-decimal pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+                <li>Parsing the intended operation (e.g., "click" vs. "type").</li>
+                <li>Localizing the target element using the Observer's spatial–semantic data.</li>
+                <li>Binding to precise screen coordinates or element IDs (e.g., <code class="bg-gray-100 px-1 rounded">pyautogui.click(676, 377, button='left')</code>).</li>
+              </ol>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mt-4">
+                This module closes the loop by updating the environment state post-execution, feeding back into the next observation cycle.
+              </p>
+            </div>
+          </section>
+
+          <!-- Key Innovations -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Key Innovations of MGA</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-6">
+              MGA's breakthrough performance stems from three game-changing design choices:
+            </p>
             <div class="space-y-4">
-              <div>
-                <h3 class="text-base font-semibold text-gray-900 mb-2">Unified Memory Interface</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  Plug-and-play design works with any LLM/VLM, no model retraining required.
+              <div class="border-l-4 border-blue-500 pl-4 py-2">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">1. Observation-Centric Workflow</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  By prioritizing "observe first, then decide," MGA aligns visual interface cues with task requirements bidirectionally—eliminating the "front-loaded mismatch" of decision-first agents.
                 </p>
               </div>
-
-              <div>
-                <h3 class="text-base font-semibold text-gray-900 mb-2">Structured Multimodal Knowledge</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  Hierarchical knowledge graphs transform raw data into actionable, interpretable memory.
+              <div class="border-l-4 border-purple-500 pl-4 py-2">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">2. Decoupled Decision-Making</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  Each step is treated as an independent environment state, powered by the Memory Triad. This decouples current decisions from historical trajectory inertia, reducing error propagation.
                 </p>
               </div>
-
-              <div>
-                <h3 class="text-base font-semibold text-gray-900 mb-2">Efficient Dual-Path Recall</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  Periodic distillation balances fast parametric access and deep retrieval-based reasoning.
-                </p>
-              </div>
-
-              <div>
-                <h3 class="text-base font-semibold text-gray-900 mb-2">Lifelong Learning Support</h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  Adaptive forgetting and bounded growth prevent redundancy and catastrophic forgetting.
+              <div class="border-l-4 border-green-500 pl-4 py-2">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">3. Task-Agnostic Grounding</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  The Observer's task-independent output enables MGA to generalize across diverse applications (Chrome, VSCode, VLC, GIMP) without retraining—critical for real-world usability.
                 </p>
               </div>
             </div>
           </section>
-          </template>
-        </div>
+
+          <!-- Experimental Results -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Experimental Results</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-6">
+              MGA was evaluated on the <strong class="text-gray-900">OSWorld benchmark</strong>—a rigorous testbed with 300+ tasks across desktop/web apps, file management, and cross-application workflows—plus real-world tools like Chrome, VSCode, and VLC. Here's how it performed against state-of-the-art baselines:
+            </p>
+
+            <!-- Overall Performance Table -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">Overall Performance</h3>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Agent Model</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Overall Accuracy</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">GTA1 (SOTA Baseline)</td>
+                      <td class="px-4 py-3 text-gray-700">48.6%</td>
+                    </tr>
+                    <tr class="bg-blue-50">
+                      <td class="px-4 py-3 font-medium text-gray-900">MGA</td>
+                      <td class="px-4 py-3 font-semibold text-blue-600"><strong>54.6%</strong></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">CoACT-1 (Hybrid Code+GUI)</td>
+                      <td class="px-4 py-3 text-gray-700">56.4%*</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-xs text-gray-500 italic mt-2">
+                *Note: CoACT-1 uses code execution (not just GUI simulation) for an unfair advantage in Office/OS tasks. MGA outperforms it in human-like GUI-only interaction.
+              </p>
+            </div>
+
+            <!-- Long-Horizon Task Superiority -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">Long-Horizon Task Superiority</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                MGA's memory-driven design shines in complex, multi-step tasks. When given a 50-step budget (vs. 15 steps), its performance gap widens significantly:
+              </p>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Agent</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">15-Step Budget</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">50-Step Budget</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">GTA1</td>
+                      <td class="px-4 py-3 text-gray-700">37.1%</td>
+                      <td class="px-4 py-3 text-gray-700">48.6%</td>
+                    </tr>
+                    <tr class="bg-green-50">
+                      <td class="px-4 py-3 font-medium text-gray-900">MGA</td>
+                      <td class="px-4 py-3 text-gray-700">38.4%</td>
+                      <td class="px-4 py-3 font-semibold text-green-600"><strong>54.6%</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mt-4">
+                This demonstrates MGA's ability to maintain consistency across long reasoning chains—critical for real-world tasks like video editing, code debugging, or flight booking.
+              </p>
+            </div>
+
+            <!-- Ablation Study -->
+            <div class="mb-8">
+              <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">Ablation Study: Critical Modules</h3>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                Removing MGA's core components highlights their complementary value:
+              </p>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Model Variant</th>
+                      <th class="px-4 py-3 text-left font-semibold text-gray-900">Overall Accuracy</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr class="bg-blue-50">
+                      <td class="px-4 py-3 font-medium text-gray-900">MGA (Full)</td>
+                      <td class="px-4 py-3 font-semibold text-blue-600"><strong>54.6%</strong></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">MGA w/o Memory</td>
+                      <td class="px-4 py-3 text-gray-700">49.8%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-medium text-gray-900">MGA w/o Spatial–Semantic Observation</td>
+                      <td class="px-4 py-3 text-gray-700">49.3%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-gray-700 leading-relaxed text-sm sm:text-base mt-4">
+                Both modules are essential: memory stabilizes long action chains, while spatial–semantic observation prevents local exploration bias.
+              </p>
+            </div>
+          </section>
+
+          <!-- Real-World Use Cases -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Real-World Use Cases</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-6">
+              MGA's robustness and generalization make it ideal for:
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">1. Desktop Automation</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Automate repetitive tasks in VSCode (code formatting, file navigation) or GIMP (image editing workflows).</li>
+                  <li>Handle dynamic interfaces with pop-ups, loading states, or context menus—common pain points for traditional agents.</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-purple-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">2. Web Interaction</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Complete multi-step web tasks (flight booking, form submission, data scraping) with resistance to UI changes.</li>
+                  <li>Recover from errors (e.g., closed modals, incorrect inputs) using structured memory of past attempts.</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-green-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">3. Cross-Application Workflows</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Seamlessly switch between Chrome (research), Thunderbird (email), and LibreOffice (document creation) without retraining.</li>
+                  <li>Maintain state consistency across apps using the Memory Agent's cross-step summaries.</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-white border-2 border-gray-100 rounded-xl hover:border-orange-200 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">4. Accessibility Tools</h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                  <li>Enable voice-driven GUI interaction for users with motor impairments by grounding speech instructions in comprehensive interface observation.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Future Directions -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Future Directions</h2>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+              While MGA already outperforms state-of-the-art GUI agents in human-like interaction, the team plans to expand it with:
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-gray-700">
+              <li><strong class="text-gray-900">Hybrid Execution</strong>: Integrate code-level execution (e.g., Python/Bash scripts) for system-level tasks while retaining GUI simulation for user-facing interactions.</li>
+              <li><strong class="text-gray-900">Adaptive Memory Pruning</strong>: Dynamically prioritize critical memory entries to optimize performance for ultra-long-horizon tasks.</li>
+              <li><strong class="text-gray-900">Multimodal Input Support</strong>: Extend observation to include speech and text inputs for more natural user-agent collaboration.</li>
+            </ul>
+          </section>
+
+          <!-- Conclusion -->
+          <section class="mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight">Conclusion</h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+              <p>
+                MGA redefines GUI agent design by putting observation and structured memory at the core. Its "observe first, then decide" paradigm eliminates trajectory dependence and local exploration bias—two longstanding limitations of modern agents. By modeling each step as an independent, context-rich state (powered by the Memory Triad), MGA achieves superior robustness, generalization, and efficiency across real-world applications and long-horizon tasks.
+              </p>
+              <p class="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 pl-4 py-3 rounded-r-lg font-medium text-gray-900">
+                As GUI agents become integral to productivity, accessibility, and automation, MGA proves that <strong>comprehensive observation + distilled memory</strong>—not just larger models or longer trajectories—is the key to human-like digital interaction.
+              </p>
+            </div>
+          </section>
+
+          <!-- Footer Note -->
+          <div class="mt-12 pt-8 border-t border-gray-200 text-sm text-gray-500 italic">
+            <p>
+              MGA is open-source and available at <a href="https://github.com/MintyCo0kie/MGA4OSWorld" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline">anonymous.4open.science/r/MGA-3571</a>. For full details, refer to the original paper: <a href="https://arxiv.org/pdf/2510.24168" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline">MGA: Memory-Driven GUI Agent for Observation-Centric Interaction</a>.
+            </p>
+          </div>
+        </template>
       </div>
     </article>
 
@@ -683,20 +805,20 @@ interface Blog {
 
 const blogs = [
   {
-    title: 'How Memverse Enhances Your AI Agents',
+    title: 'MemVerse: Revolutionizing Lifelong Learning for Multimodal AI Agents',
     summary: 'A model-agnostic, plug-and-play memory framework that equips AI agents with lifelong multimodal learning capabilities.',
     date: '2025',
     readTime: '15 min read',
     category: 'Research Paper',
     tags: ['Memory Systems', 'Multimodal AI', 'Lifelong Learning'],
-    image: 'https://dw2283.github.io/memweb/research/architecture.png',
-    arxiv: 'https://arxiv.org/pdf/2510.24168',
-    github: 'https://github.com/MintyCo0kie/MGA4OSWorld',
+    image: 'https://p3-flow-imagex-sign.byteimg.com/ocean-cloud-tos/pdf/1be3d956a64a0d2a3297e44f03c007f8_0_1200.jpg~tplv-a9rns2rl98-resize-crop:84:346:842:704:758:358.jpeg?rk3s=1567c5c4&x-expires=1796349419&x-signature=j5oLY%2Fg8%2BAOU6Ifoi2ldzFtdcMQ%3D',
+    arxiv: 'https://arxiv.org/pdf/2512.03627',
+    github: 'https://github.com/KnowledgeXLab/MemVerse',
     videoUrl: undefined,
     resultsImage: undefined
   },
   {
-    title: 'Application: How Memverse Enhances GUI Agent',
+    title: 'Application: How Memory Enhances GUI Agent',
     summary: 'A memory-driven GUI agent framework that enables observation-centric interaction with graphical user interfaces. MGA leverages persistent memory to remember UI patterns, user preferences, and interaction history for efficient task automation.',
     date: '2025',
     readTime: '12 min read',
@@ -717,6 +839,10 @@ const blogId = computed(() => {
 const currentBlog = computed(() => {
   return blogs[blogId.value] || blogs[0]
 })
+
+// MGA blog images
+const mgaImage1 = '/images/research2/img1.png'
+const mgaImage2 = '/images/research2/img2.PNG'
 
 function goBack() {
   router.push('/research')

@@ -332,43 +332,13 @@
     </div>
     </div>
   </section>
-
-  <!-- Newsletter Section -->
-  <section class="bg-gray-50 py-20 sm:py-24 md:py-32">
-    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-      <div class="max-w-2xl mx-auto text-center">
-        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-6 leading-tight tracking-tight">Stay Updated</h3>
-        <el-form :model="form" class="grid sm:grid-cols-[1fr_auto] gap-3">
-          <el-input 
-            v-model="form.email" 
-            placeholder="Enter your email for updates" 
-            size="large"
-          />
-          <BaseButton type="primary" :loading="loading" @click="subscribe" size="large" class="w-full sm:w-auto">
-            Notify Me
-          </BaseButton>
-    </el-form>
-        <p class="text-xs text-gray-500 mt-4">
-      By subscribing you agree to our privacy policy.
-    </p>
-      </div>
-    </div>
-  </section>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import BaseButton from '@/components/base/BaseButton.vue'
-import { useNotification } from '@/composables/useNotification'
-import { useLoading } from '@/composables/useLoading'
-import { subscribeEmail } from '@/services/site'
 
 const router = useRouter()
-const { success, error } = useNotification()
-const { loading, start, stop } = useLoading(false, 'Submitting...')
-
-const form = ref({ email: '' })
 
 // Video demo URL - Replace with your actual video URL (YouTube, Vimeo, etc.)
 // Example: 'https://www.youtube.com/embed/YOUR_VIDEO_ID'
@@ -452,22 +422,5 @@ function viewBlogDetail(index: number) {
 function handleImageError(event: Event) {
   const img = event.target as HTMLImageElement
   img.style.display = 'none'
-}
-
-async function subscribe() {
-  if (!form.value.email) {
-    error('Please enter email.')
-    return
-  }
-  try {
-    start()
-    await subscribeEmail(form.value.email)
-    success('Thanks! We will be in touch.')
-    form.value.email = ''
-  } catch (e: any) {
-    error(e?.message || 'Subscribe failed')
-  } finally {
-    stop()
-  }
 }
 </script>
