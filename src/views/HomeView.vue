@@ -10,11 +10,11 @@
       <div class="max-w-6xl mx-auto w-full space-y-8">
         <div class="text-center space-y-6">
           <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 leading-[1.1] tracking-[-0.02em]">
-            Memory turns AI into intelligence.
+            Memory turns AI into Intelligence.
         </h1>
           <div class="max-w-4xl mx-auto leading-relaxed space-y-3">
             <p class="text-base sm:text-lg md:text-xl font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">
-              Plug MemVerse to your agent and unlock memory-driven reasoning.
+              Plug MemVerse to your agent and unlock memory-driven reasoning
             </p>
             <p class="text-sm sm:text-base text-gray-500">
               One-line install. Works with any LLM. No complex setup.
@@ -114,7 +114,7 @@
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-3">Cost Efficient</h3>
             <p class="text-sm text-gray-600 leading-relaxed">
-              <span class="font-medium text-gray-900">90% token savings.</span> 91% lower latency. Scale without breaking the bank.
+              <span class="font-medium text-gray-900">90% token savings.</span> Scale without breaking the bank.
             </p>
           </div>
         </div>
