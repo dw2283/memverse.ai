@@ -41,16 +41,31 @@
 
         <!-- Video Container -->
         <div class="relative w-full bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-          <div class="w-full aspect-video max-h-[600px]">
+          <div class="w-full aspect-video max-h-[600px] relative">
+            <!-- 视频加载中的占位符 -->
+            <div 
+              v-if="demoVideoPath && !videoLoaded" 
+              class="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100"
+            >
+              <div class="text-center">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center shadow-inner animate-pulse">
+                  <el-icon class="text-gray-600 text-3xl"><i-ep-video-play /></el-icon>
+                </div>
+                <p class="text-gray-600 text-sm font-medium">正在加载视频...</p>
+                <p class="text-gray-400 text-xs mt-2">请稍候</p>
+              </div>
+            </div>
             <!-- 播放 public 目录下的视频 -->
             <video
               v-if="demoVideoPath"
               :src="demoVideoPath"
               controls
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover transition-opacity duration-500"
+              :class="{ 'opacity-0 absolute': !videoLoaded, 'opacity-100': videoLoaded }"
               preload="metadata"
               @error="handleVideoError"
               @loadedmetadata="handleVideoLoaded"
+              @loadstart="handleVideoLoadStart"
             >
               您的浏览器不支持视频播放。
             </video>
@@ -353,6 +368,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL 
   : `${import.meta.env.BASE_URL}/`
 const demoVideoPath = ref<string>(`${baseUrl}demo.mp4`)
+const videoLoaded = ref<boolean>(false)
 
 // FAQ data
 const faqs = ref([
@@ -469,8 +485,13 @@ function handleVideoError(event: Event) {
   ElMessage.error(`${errorMessage}。路径: ${video.src}`)
 }
 
+function handleVideoLoadStart(event: Event) {
+  videoLoaded.value = false
+}
+
 function handleVideoLoaded(event: Event) {
   const video = event.target as HTMLVideoElement
+  videoLoaded.value = true
   console.log('视频加载成功:', {
     duration: video.duration,
     videoWidth: video.videoWidth,
