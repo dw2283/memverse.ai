@@ -42,20 +42,24 @@
         <!-- Video Container -->
         <div class="relative w-full bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
           <div class="aspect-video w-full max-h-[400px]">
-            <iframe
-              v-if="videoUrl"
-              :src="videoUrl"
-              class="w-full h-full"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <!-- 播放 public 目录下的视频 -->
+            <video
+              v-if="demoVideoPath"
+              :src="demoVideoPath"
+              controls
+              class="w-full h-full object-contain bg-black"
+              preload="metadata"
+            >
+              您的浏览器不支持视频播放。
+            </video>
+            <!-- 如果没有视频，显示占位符 -->
             <div v-else class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
               <div class="text-center">
                 <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center shadow-inner">
                   <el-icon class="text-gray-600 text-2xl"><i-ep-video-play /></el-icon>
                 </div>
                 <p class="text-gray-500 text-xs">Video Demo Coming Soon</p>
+                <p class="text-gray-400 text-xs mt-2">请将视频文件放置在 public 目录下</p>
               </div>
             </div>
           </div>
@@ -340,10 +344,10 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-// Video demo URL - Replace with your actual video URL (YouTube, Vimeo, etc.)
-// Example: 'https://www.youtube.com/embed/YOUR_VIDEO_ID'
-// Or: 'https://player.vimeo.com/video/YOUR_VIDEO_ID'
-const videoUrl = ref<string>('')
+// Demo 视频路径 - 视频文件应放在 public 目录下
+// 例如：如果视频文件是 public/demo.mp4，则路径为 '/demo.mp4'
+// 或者：public/videos/demo.mp4，则路径为 '/videos/demo.mp4'
+const demoVideoPath = ref<string>('/14631384_3840_2160_60fps.mp4')
 
 // FAQ data
 const faqs = ref([

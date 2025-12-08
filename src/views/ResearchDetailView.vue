@@ -442,17 +442,16 @@
 
         <!-- MGA Content -->
         <template v-else-if="blogId === 1">
-          <!-- Overview Image -->
-          <div class="mb-10 rounded-xl overflow-hidden shadow-lg">
-            <img 
-              :src="mgaImage1"
-              alt="MGA Framework Overview"
+          <!-- Demo Video -->
+          <div class="mb-10 rounded-xl overflow-hidden shadow-lg bg-black">
+            <video
+              src="/images/research2/mga.mp4"
+              controls
               class="w-full h-auto"
-              @error="handleImageError"
-            />
-            <p class="text-xs text-gray-500 italic mt-2 text-center">
-              Figure 1: The core architecture of MGA, featuring four interdependent modules that enable the "observe–then–decide" paradigm for GUI interaction.
-            </p>
+              preload="metadata"
+            >
+              您的浏览器不支持视频播放。
+            </video>
           </div>
 
           <!-- Introduction -->
@@ -471,6 +470,19 @@
               </p>
             </div>
           </section>
+
+          <!-- Overview Image -->
+          <div class="mb-10 rounded-xl overflow-hidden shadow-lg">
+            <img 
+              :src="mgaImage1"
+              alt="MGA Framework Overview"
+              class="w-full h-auto"
+              @error="handleImageError"
+            />
+            <p class="text-xs text-gray-500 italic mt-2 text-center">
+              Figure 1: The core architecture of MGA, featuring four interdependent modules that enable the "observe–then–decide" paradigm for GUI interaction.
+            </p>
+          </div>
 
           <!-- Core Design -->
           <section class="mb-10">
