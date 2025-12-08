@@ -348,9 +348,11 @@ import { ElMessage } from 'element-plus'
 const router = useRouter()
 
 // Demo 视频路径 - 视频文件应放在 public 目录下
-// 例如：如果视频文件是 public/demo.mp4，则路径为 '/demo.mp4'
-// 或者：public/videos/demo.mp4，则路径为 '/videos/demo.mp4'
-const demoVideoPath = ref<string>('/demo.mp4')
+// 使用 import.meta.env.BASE_URL 确保在 GitHub Pages 等部署环境中路径正确
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') 
+  ? import.meta.env.BASE_URL 
+  : `${import.meta.env.BASE_URL}/`
+const demoVideoPath = ref<string>(`${baseUrl}demo.mp4`)
 
 // FAQ data
 const faqs = ref([
@@ -433,13 +435,38 @@ function handleImageError(event: Event) {
 
 function handleVideoError(event: Event) {
   const video = event.target as HTMLVideoElement
+  const error = video.error
+  let errorMessage = '视频加载失败'
+  
+  if (error) {
+    switch (error.code) {
+      case error.MEDIA_ERR_ABORTED:
+        errorMessage = '视频加载被中止'
+        break
+      case error.MEDIA_ERR_NETWORK:
+        errorMessage = '网络错误，请检查网络连接'
+        break
+      case error.MEDIA_ERR_DECODE:
+        errorMessage = '视频解码失败，请检查视频格式'
+        break
+      case error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+        errorMessage = '视频格式不支持或文件路径错误'
+        break
+      default:
+        errorMessage = '视频加载失败'
+    }
+  }
+  
   console.error('视频加载失败:', {
-    error: video.error,
+    error: error,
+    errorCode: error?.code,
     src: video.src,
     networkState: video.networkState,
-    readyState: video.readyState
+    readyState: video.readyState,
+    baseURL: import.meta.env.BASE_URL
   })
-  ElMessage.error('视频加载失败，请检查文件路径或格式')
+  
+  ElMessage.error(`${errorMessage}。路径: ${video.src}`)
 }
 
 function handleVideoLoaded(event: Event) {
